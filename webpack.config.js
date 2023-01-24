@@ -18,7 +18,7 @@ module.exports = ({ dev, serve }) => {
           open: {
             app: {
               name: 'firefox',
-              arguments: ['--new-window'],
+              arguments: ['--new-tab'],
             },
           },
           hot: false,
@@ -48,12 +48,14 @@ module.exports = ({ dev, serve }) => {
         {
           test: /\.(mjs|js)$/i,
           exclude: /(node_modules)/,
-          use: {
-            loader: 'babel-loader',
-            options: {
-              presets: ['@babel/preset-env'],
+          use: [
+            {
+              loader: 'babel-loader',
+              options: {
+                presets: ['@babel/preset-env'],
+              },
             },
-          },
+          ],
         },
 
         // css

@@ -22,7 +22,7 @@
     "webpack-dev-server": "^4.11.1"
   },
   "browserslist": [
-    "> 1%",
+    "> 0.5%",
     "last 2 versions",
     "not dead",
     "not ie 11"

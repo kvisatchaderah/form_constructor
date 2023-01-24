@@ -1,7 +1,4 @@
-import './captcha/captcha'
-import './catcha_container.sass'
+import ConstructorForm from './constructor_form/constructor_form'
+import config from './config'
 
-const captcha_container = document.createElement('div')
-captcha_container.id = 'captcha'
-document.body.append(captcha_container)
-document.body.id = 'captcha_container'
+new ConstructorForm(config)

@@ -34,10 +34,10 @@ module.exports = ({ dev, serve }) => {
 
     // output
     output: {
-      filename: '[name].js',
+      filename: dev ? '[name].js' : '[name][hash].js',
       clean: true,
       path: __dirname + '/dist',
-      assetModuleFilename: '[name][ext]',
+      assetModuleFilename: dev ? '[name][ext]' : '[name][hash][ext]',
     },
 
     // module

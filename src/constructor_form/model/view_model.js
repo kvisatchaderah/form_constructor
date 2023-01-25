@@ -1,36 +1,46 @@
 // helpers
 import { get_view_model, get_unic_id } from '@helpers'
 
+// assets
+import { init_view_model } from '@assets'
+
 // export
-export default {
+export default class {
+  constructor(context) {
+    this.context = context
+    this.value = init_view_model
+  }
+
   // create_view_model
-  create_view_model() {
-    this.views.windows.forEach((window, window_idx) => {
+  create() {
+    this.context.views.windows.forEach((window, window_idx) => {
       const window_model = get_view_model(null, {
         class: 'window',
       })
 
       window.forEach((window_elem, window_elem_idx) => {
         // labels
-        if (this.styles.labels) {
-          const input_model = this.get_has_label_input_model(window_elem, [
-            window_idx,
-            window_elem_idx,
-          ])
+        if (this.context.styles.labels) {
+          const input_model = this.context.view_model.get_has_label_input_model(
+            window_elem,
+            [window_idx, window_elem_idx]
+          )
           window_model.childs.push(input_model)
         }
 
         // not labels
         else {
-          const input_model = this.get_not_label_input_model(window_elem)
+          const input_model =
+            this.context.view_model.get_not_label_input_model(window_elem)
           window_model.childs.push(input_model)
         }
       })
 
-      this.view_model.childs[0].childs.push(window_model)
+      this.context.view_model.value.childs[0].childs.push(window_model)
     })
-  },
+  }
 
+  // get_has_label_input_model
   get_has_label_input_model(window_elem, [first, second]) {
     return get_view_model('div', { class: 'input_wrapper' }, [
       get_view_model(
@@ -49,8 +59,9 @@ export default {
         class: 'input',
       }),
     ])
-  },
+  }
 
+  // get_not_label_input_model
   get_not_label_input_model(window_elem) {
     return get_view_model('input', {
       name: window_elem.name,
@@ -58,10 +69,10 @@ export default {
       required: window_elem.required,
       class: 'input',
     })
-  },
+  }
 
-  // get_veiw_model
-  get_veiw_model() {
-    return this.view_model
-  },
+  // get
+  get() {
+    return this.context.view_model.value
+  }
 }

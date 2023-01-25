@@ -1,7 +1,7 @@
 // mvc
-import Model from './mvc/model'
-import View from './mvc/view'
-import Controller from './mvc/controller'
+import Model from './model/_model'
+import View from './view/_view'
+import Controller from './controller/_controller'
 
 // styles
 import './styles/_bundler.sass'

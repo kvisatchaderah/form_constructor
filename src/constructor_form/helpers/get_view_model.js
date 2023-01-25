@@ -1,7 +1,7 @@
-export default function (tag = null, options = {}, childs = []) {
+export default function (tag, options, childs) {
   return {
-    tag,
-    options,
-    childs,
+    tag: tag ?? null,
+    options: options ? { ...options, ...{ future_it_dent__widget: '' } } : {},
+    childs: childs ?? [],
   }
 }

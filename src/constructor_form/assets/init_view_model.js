@@ -1,10 +1,7 @@
 // helpers
 import { get_view_model } from '../helpers/_helpers'
 
-export default {
-  // form
-  form: get_view_model('form'),
-
-  // form button
-  open_form_button: get_view_model('form', null, ['form button']),
-}
+export default get_view_model(null, { class: 'widget' }, [
+  get_view_model('form', { class: 'widget__form windows' }),
+  get_view_model('button', { class: 'widget__button' }, ['form button']),
+])

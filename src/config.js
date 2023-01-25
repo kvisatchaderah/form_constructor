@@ -1,37 +1,41 @@
 export default {
   // styles
   styles: {
-    color_variants: '#ffffff', // ---- off ----
-    color_value: '', // ---- off ----
-    font_color_variants: '#ffffff', // ---- off ----
-    font_color_value: '', // ---- off ----
+    background_color: '#ffffff',
+    font_color: '#000000',
+    border_radius: '4px',
+    font_size: '20px',
+
     open_method: 'dynamic', // ---- off ----
     open_template: 'standart', // ---- off ----
-    font_size_variants: 'middle', // ---- off ----
-    font_size_value: '', // ---- off ----
     current_style: 'light', // ---- off ----
-    border_radius: 'small', // ---- off ----
     position_x: 'right', // ---- off ----
     position_y: 'middle', // ---- off ----
+
     labels: true,
   },
 
   // special
   special: {
     // no_style
-    no_style: false, // ---- off ----
+    no_style: false,
 
     // identeficators
-    form_ids: '', // ---- off ----
+    widget_ids: 'widget_ids',
+    widget_classes: 'widget_classes',
+    widget_class__active: 'widget_class__active',
 
-    on_widget_button_classes: '', // ---- off ----
-    active_on_widget_button_class: '', // ---- off ----
+    form_ids: 'form_ids',
+    form_classes: 'form_classes',
+    form_class__active: 'form_class__active',
 
-    window_classes: '', // ---- off ----
-    active_window_class: '', // ---- off ----
+    widget_button_ids: 'widget_button_ids',
+    widget_button_classes: 'widget_button_classes',
+    widget_button_class__active: 'widget_button_class__active',
 
-    widget_classes: '', // ---- off ----
-    open_widget_class: '', // ---- off ----
+    window_ids: 'window_ids',
+    window_classes: 'window_classes',
+    window_class__active: 'window_class__active',
   },
 
   // views

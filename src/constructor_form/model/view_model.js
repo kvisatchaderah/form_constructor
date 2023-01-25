@@ -2,20 +2,56 @@
 import { get_view_model, get_unic_id } from '@helpers'
 
 // assets
-import { init_view_model } from '@assets'
+import widget_data_name from '../assets/widget_data_name'
 
 // export
 export default class {
   constructor(context) {
     this.context = context
-    this.value = init_view_model
+    this.value = null
   }
 
   // create_view_model
   create() {
+    this.context.view_model.create_widget()
+    this.context.view_model.create_windows()
+  }
+
+  // create_widget
+  create_widget() {
+    this.context.view_model.value = get_view_model(
+      null,
+      {
+        id: `${widget_data_name} ${this.context.special.widget_ids}`,
+        class: `widget ${this.context.special.widget_classes}`,
+        class_active: this.context.special.widget_class__active,
+      },
+      [
+        get_view_model('form', {
+          id: this.context.special.form_ids,
+          class: `widget__form windows ${this.context.special.form_classes}`,
+          class_active: this.context.special.form_class__active,
+        }),
+        get_view_model(
+          'button',
+          {
+            id: this.context.special.widget_button_ids,
+            class: `widget__button ${this.context.special.widget_button_classes}`,
+            class_active: this.context.special.widget_button_class__active,
+          },
+          ['form button']
+        ),
+      ]
+    )
+  }
+
+  // create_windows
+  create_windows() {
     this.context.views.windows.forEach((window, window_idx) => {
       const window_model = get_view_model(null, {
-        class: 'window',
+        id: this.context.special.window_ids,
+        class: `window ${this.context.special.window_classes}`,
+        class_active: this.context.special.window_class__active,
       })
 
       window.forEach((window_elem, window_elem_idx) => {

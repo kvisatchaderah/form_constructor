@@ -2,6 +2,9 @@ body
 	background-color: #222222
 	color: #cecece
 
-[data-#{$unic_data_name}]
+##{$unic_data_name}[data-#{$unic_data_name}]
 	&.widget
-		background-color: var($background_color)
+		background-color: var($bc)
+		color: var($fc)
+		font-size: var($fs)
+		border-radius: var($brad)

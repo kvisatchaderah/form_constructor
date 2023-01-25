@@ -1,3 +1,7 @@
+// assets
+import { widget_data_name } from '@assets'
+
+// export
 export default class {
   // constructor
   constructor(context) {
@@ -10,25 +14,18 @@ export default class {
     // no_style
     if (this.context.special.no_style) return
 
-    // background color
-    if (this.context.styles.color_value) {
-      this.context.widget_vars.add_var(
-        'background_color',
-        this.context.styles.color_value
-      )
-    } else {
-      this.context.widget_vars.add_var(
-        'background_color',
-        this.context.styles.color_variants
-      )
-    }
+    // add_vars
+    this.context.widget_vars.add_var('bc', this.context.styles.background_color)
+    this.context.widget_vars.add_var('fc', this.context.styles.font_color)
+    this.context.widget_vars.add_var('fs', this.context.styles.font_size)
+    this.context.widget_vars.add_var('brad', this.context.styles.border_radius)
   }
 
   // add_var
   add_var(key, value) {
     this.context.widget_vars.value.push({
-      key: '--future_it_dent_widget__' + key,
-      value,
+      key: `--${widget_data_name}__` + key,
+      value: value,
     })
   }
 

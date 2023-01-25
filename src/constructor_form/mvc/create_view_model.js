@@ -1,30 +1,4 @@
-// assets
-import { init_view_model } from '@assets'
-
-// helpers
-import { get_view_model, get_unic_id } from '@helpers'
-
-export default class {
-  constructor({ styles, special, views }) {
-    // data
-    this.view_model = init_view_model
-    this.widget_vars = []
-    this.unic_data = Math.round(10 ** 6 * Math.random())
-
-    // config
-    this.styles = styles
-    this.special = special
-    this.views = views
-
-    // init
-    this.create_view_model()
-    this.create_widget_vars()
-  }
-
-  //
-  // create_view_model
-  //
-
+export default {
   // create_view_model
   create_view_model() {
     this.views.windows.forEach((window, window_idx) => {
@@ -51,7 +25,7 @@ export default class {
 
       this.view_model.childs[0].childs.push(window_model)
     })
-  }
+  },
 
   get_has_label_input_model(window_elem, [first, second]) {
     return get_view_model('div', { class: 'input_wrapper' }, [
@@ -71,7 +45,7 @@ export default class {
         class: 'input',
       }),
     ])
-  }
+  },
 
   get_not_label_input_model(window_elem) {
     return get_view_model('input', {
@@ -80,40 +54,10 @@ export default class {
       required: window_elem.required,
       class: 'input',
     })
-  }
+  },
 
   // get_veiw_model
   get_veiw_model() {
     return this.view_model
-  }
-
-  //
-  // create_widget_vars
-  //
-
-  // create_widget_vars
-  create_widget_vars() {
-    // no_style
-    if (this.special.no_style) return
-
-    // background color
-    if (this.styles.color_value) {
-      this.add_var('background_color', this.styles.color_value)
-    } else {
-      this.add_var('background_color', this.styles.color_variants)
-    }
-  }
-
-  // add_var
-  add_var(key, value) {
-    this.widget_vars.push({
-      key: '--future_it_dent_widget__' + key,
-      value,
-    })
-  }
-
-  // get_widget_vars
-  get_widget_vars() {
-    return this.widget_vars
-  }
+  },
 }

@@ -26,11 +26,8 @@ module.exports = ({ dev, serve }) => {
         }
       : undefined,
 
-    // context
-    context: __dirname + '/src',
-
     // entry
-    entry: { app: './index.js' },
+    entry: { app: './src/index.js' },
 
     // output
     output: {
@@ -38,6 +35,14 @@ module.exports = ({ dev, serve }) => {
       clean: true,
       path: __dirname + '/dist',
       assetModuleFilename: dev ? '[name][ext]' : '[name][hash][ext]',
+    },
+
+    resolve: {
+      alias: {
+        '@assets': __dirname + '/src/constructor_form/assets/_assets',
+        '@helpers': __dirname + '/src/constructor_form/helpers/_helpers',
+        '@styles': __dirname + '/src/constructor_form/styles',
+      },
     },
 
     // module

@@ -17,23 +17,7 @@ export default class {
   //
 
   set_create_method() {
-    // standart mode
-    if (this.config.views.mode === 'standart') {
-      this.create = this.create_to_standart_mode
-      return
-    }
-
-    // quiz mode
-    if (this.config.views.mode === 'quiz') {
-      this.create = this.create_to_quiz_mode
-      return
-    }
-
-    // tree mode
-    if (this.config.views.mode === 'tree') {
-      this.create = this.create_to_tree_mode
-      return
-    }
+    this.create = this[`create_to_${this.config.views.mode}_mode`]
   }
 
   //
@@ -64,37 +48,105 @@ export default class {
   //
 
   create_to_quiz_mode() {
-    this.windows_model = this.windows_model.map(
+    this.context.windows_model.value = this.context.windows_model.value.map(
       (window_model, window_index) => {
         // first window
         if (!window_index) {
-          return this.create_first_buttons_for_quiz_mode()
+          return this.get_first_buttons_for_quiz_mode(window_model)
         }
 
         // last window
-        if (window_index === this.windows_model.length - 1) {
-          return this.create_last_buttons_for_quiz_mode()
+        if (window_index === this.context.windows_model.value.length - 1) {
+          return this.get_last_buttons_for_quiz_mode(window_model)
         }
 
         // other windows
-        return this.create_standart_buttons_for_quiz_mode()
+        return this.get_standart_buttons_for_quiz_mode(window_model)
       }
+    )
+
+    console.log(
+      ' this.context.windows_model.value: ',
+      this.context.windows_model.value
     )
   }
 
-  // create_first_buttons_for_quiz_mode
-  create_first_buttons_for_quiz_mode() {
-    return ''
-  }
+  // first windows
+  get_first_buttons_for_quiz_mode(window_model) {
+    window_model.childs.push(
+      get_element_model(null, { class: 'button_container' }, [
+        get_element_model(
+          'button',
+          {
+            class: 'button --disabled',
+          },
+          ['prev']
+        ),
 
-  // create_last_buttons_for_quiz_mode
-  create_last_buttons_for_quiz_mode() {
-    return ''
+        get_element_model(
+          'button',
+          {
+            class: 'button',
+            class_disabled: '--disabled',
+          },
+          ['next']
+        ),
+      ])
+    )
+
+    return window_model
   }
 
   // other windows
-  create_standart_buttons_for_quiz_mode() {
-    return ''
+  get_standart_buttons_for_quiz_mode(window_model) {
+    window_model.childs.push(
+      get_element_model(null, { class: 'button_container' }, [
+        get_element_model(
+          'button',
+          {
+            class: 'button',
+          },
+          ['prev']
+        ),
+
+        get_element_model(
+          'button',
+          {
+            class: 'button',
+            class_disabled: '--disabled',
+          },
+          ['next']
+        ),
+      ])
+    )
+
+    return window_model
+  }
+
+  // last windows
+  get_last_buttons_for_quiz_mode(window_model) {
+    window_model.childs.push(
+      get_element_model(null, { class: 'button_container' }, [
+        get_element_model(
+          'button',
+          {
+            class: 'button --submit',
+          },
+          ['prev']
+        ),
+
+        get_element_model(
+          'button',
+          {
+            class: 'button --submit',
+            class_disabled: '--disabled',
+          },
+          ['submit']
+        ),
+      ])
+    )
+
+    return window_model
   }
 
   //

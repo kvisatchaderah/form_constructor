@@ -53,7 +53,7 @@ export default {
   // views
   views: {
     // mode
-    mode: 'standart', // 'standart' 'quiz' 'tree'
+    mode: 'quiz', // 'standart' 'quiz' 'tree'
 
     // tree
     tree_labels: ['1 tree lsbel', '2 tree label'],

@@ -17,9 +17,15 @@ export default function (tag, props, childs) {
   Object.keys(props).forEach((key) => {
     // class
     if (key === 'class') {
-      props[key].split(' ').forEach((c) => {
-        if (c) element.classList.add(c.trim())
+      const classes_list = props[key]
+        .replace(/[\t|\r|\n]+/g, ' ')
+        .replace(/[\s\s]+/g, ' ')
+        .trim()
+        .split(' ')
+      classes_list.forEach((c) => {
+        element.classList.add(c)
       })
+
       return
     }
 

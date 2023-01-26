@@ -1,6 +1,6 @@
-// helpers
-import ViewModel from './view_model'
-import WidgetVars from './widget_vars'
+// modules
+import NodeModel from './node'
+import CSSVars from './css_vars'
 
 // export
 export default class {
@@ -11,11 +11,17 @@ export default class {
     this.special = special
     this.views = views
 
-    this.view_model = new ViewModel(this)
-    this.widget_vars = new WidgetVars(this)
+    // modules
+    this.node = new NodeModel(this)
+    this.css_vars = new CSSVars(this)
 
     // init
-    this.view_model.create()
-    this.widget_vars.create()
+    this.init()
+  }
+
+  // init
+  init() {
+    this.node.create()
+    this.css_vars.create()
   }
 }

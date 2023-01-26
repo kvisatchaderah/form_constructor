@@ -41,6 +41,10 @@ module.exports = ({ dev, serve }) => {
       alias: {
         '@assets': __dirname + '/src/constructor_form/assets/_assets',
         '@helpers': __dirname + '/src/constructor_form/helpers/_helpers',
+        'm_helpers': __dirname + '/src/constructor_form/model/helpers/_helpers',
+        'v_helpers': __dirname + '/src/constructor_form/view/helpers/_helpers',
+        'c_helpers':
+          __dirname + '/src/constructor_form/controller/helpers/_helpers',
         '@styles': __dirname + '/src/constructor_form/styles',
       },
     },

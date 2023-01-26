@@ -1,4 +1,4 @@
-//assets
+// helpers
 import { create_node, add_node } from '@helpers'
 
 // export

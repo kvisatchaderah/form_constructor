@@ -1,5 +1,7 @@
-import widget_data_name from '../assets/widget_data_name'
+// assets
+import { widget_data_name } from '@assets'
 
+// export
 export default function (tag, options, childs) {
   return {
     tag: tag ?? null,

@@ -17,20 +17,32 @@ export default function (tag, props, childs) {
   Object.keys(props).forEach((key) => {
     // class
     if (key === 'class') {
-      props[key].split(' ').forEach((c) => element.classList.add(c))
+      props[key].split(' ').forEach((c) => {
+        if (c) element.classList.add(c.trim())
+      })
       return
     }
 
     // class
     if (key === 'for') {
-      element.htmlFor = props[key]
+      if (typeof props[key] === 'string') {
+        element.htmlFor = props[key].trim()
+      } else {
+        element.htmlFor = props[key]
+      }
+
       return
     }
 
     // general
     else {
-      element[key] = props[key]
-      element.dataset[key] = props[key]
+      if (typeof props[key] === 'string') {
+        element[key] = props[key].trim()
+        element.dataset[key] = props[key].trim()
+      } else {
+        element[key] = props[key]
+        element.dataset[key] = props[key]
+      }
     }
   })
 

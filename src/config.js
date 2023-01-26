@@ -21,21 +21,21 @@ export default {
     no_style: false,
 
     // identeficators
-    widget_ids: 'widget_ids',
-    widget_classes: 'widget_classes',
-    widget_class__active: 'widget_class__active',
+    widget__ids: 'widget_ids',
+    widget__classes: 'gfdgfg',
+    widget__class_active: 'widget_class__active',
 
-    form_ids: 'form_ids',
-    form_classes: 'form_classes',
-    form_class__active: 'form_class__active',
+    widget_form__ids: 'form_ids',
+    widget_form__classes: 'form_classes',
+    widget_form__class_active: 'form_class__active',
 
-    widget_button_ids: 'widget_button_ids',
-    widget_button_classes: 'widget_button_classes',
-    widget_button_class__active: 'widget_button_class__active',
+    widget_button__ids: 'widget_button_ids',
+    widget_button__classes: 'widget_button_classes',
+    widget_button__class_active: 'widget_button_class__active',
 
-    window_ids: 'window_ids',
-    window_classes: 'window_classes',
-    window_class__active: 'window_class__active',
+    window__ids: 'window_ids',
+    window__classes: 'window_classes',
+    window__class_active: 'window_class__active',
   },
 
   // views
@@ -45,15 +45,27 @@ export default {
 
     // windows
     windows: [
-      // ---- off ----
       [
         {
-          name: 'Имя',
+          name: 'Имя 1',
           type: 'text',
           required: false,
         },
         {
-          name: 'Телефон',
+          name: 'Телефон 1',
+          type: 'tel',
+          required: true,
+        },
+      ],
+
+      [
+        {
+          name: 'Имя 2',
+          type: 'text',
+          required: false,
+        },
+        {
+          name: 'Телефон 3',
           type: 'tel',
           required: true,
         },

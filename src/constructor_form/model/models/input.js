@@ -1,5 +1,5 @@
 // helpers
-import { get_element_model } from 'm_helpers'
+import { get_element_model } from '@m_helpers'
 
 // export
 export default class {

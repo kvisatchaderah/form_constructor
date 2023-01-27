@@ -1,5 +1,5 @@
 // helpers
-import { get_element_model, add_options } from 'm_helpers'
+import { get_element_model, add_options, get_button_classes } from '@m_helpers'
 
 // Buttons
 export default {
@@ -40,17 +40,17 @@ export default {
       { class: 'button_container' },
       [
         get_element_model(
-          'button',
+          null,
           {
-            class: 'button --disabled',
+            class: get_button_classes('prev', '--disable'),
           },
           ['prev']
         ),
 
         get_element_model(
-          'button',
+          null,
           {
-            class: 'button',
+            class: get_button_classes('next'),
             class_disabled: '--disabled',
           },
           ['next']
@@ -71,17 +71,17 @@ export default {
     window_model.childs.push(
       get_element_model(null, { class: 'button_container' }, [
         get_element_model(
-          'button',
+          null,
           {
-            class: 'button',
+            class: get_button_classes('prev'),
           },
           ['prev']
         ),
 
         get_element_model(
-          'button',
+          null,
           {
-            class: 'button',
+            class: get_button_classes('next'),
             class_disabled: '--disabled',
           },
           ['next']
@@ -101,17 +101,17 @@ export default {
     window_model.childs.push(
       get_element_model(null, { class: 'button_container' }, [
         get_element_model(
-          'button',
+          null,
           {
-            class: 'button --submit',
+            class: get_button_classes('prev'),
           },
           ['prev']
         ),
 
         get_element_model(
-          'button',
+          null,
           {
-            class: 'button --submit',
+            class: get_button_classes('submit'),
             class_disabled: '--disabled',
           },
           ['submit']

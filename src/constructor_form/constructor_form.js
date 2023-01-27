@@ -4,7 +4,7 @@ import View from './view/_view'
 import Controller from './controller/_controller'
 
 // styles
-import './styles/_bundler.sass'
+import '@styles/_bundler.sass'
 
 export default class {
   constructor(config) {

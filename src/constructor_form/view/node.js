@@ -1,45 +1,26 @@
 // helpers
-import { create_node_element, is_creatable } from 'v_helpers'
+import { create_node_element, is_creatable } from '@v_helpers'
+import { event_emitter as EventEmitter } from '@helpers'
 
-// export
-export default class {
-  constructor() {}
+// class
+const NodeClass = class extends EventEmitter {
+  // constructor
+  constructor() {
+    super()
+  }
 
   // create
   create(node_model) {
     const view = this.create_node(node_model)
     this.add_node(view)
   }
-
-  // create_node
-  create_node(node_model) {
-    // create
-    if (is_creatable(node_model)) {
-      return create_node_element(
-        node_model.tag,
-        node_model.options,
-        node_model.childs
-      )
-    }
-
-    // recursio
-    else {
-      node_model.childs = node_model.childs.map((child) =>
-        this.create_node(child)
-      )
-      return create_node_element(
-        node_model.tag,
-        node_model.options,
-        node_model.childs
-      )
-    }
-  }
-
-  // add_node
-  add_node(nodes, target) {
-    if (!target) target = document.body
-    if (!Array.isArray(nodes)) nodes = [nodes]
-
-    nodes.forEach((node) => target.append(node))
-  }
 }
+
+// mixins
+import node_create from './node_create'
+import node_emits from './node_emits'
+
+Object.assign(NodeClass.prototype, node_create, node_emits)
+
+// export
+export default NodeClass

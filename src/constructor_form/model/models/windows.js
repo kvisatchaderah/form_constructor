@@ -4,7 +4,8 @@ import {
   get_computed_options,
   get_unic_id,
   add_options,
-} from 'm_helpers'
+  get_button_classes,
+} from '@m_helpers'
 
 // export
 export default class {
@@ -49,11 +50,11 @@ export default class {
 
   // update_model_to_tree_mode
   update_model_to_tree_mode() {
-    this.value = this.value.map(this.add_wrapper_to_window.bind(this))
+    this.value = this.value.map(this.add_wrapper_to_window)
   }
 
   // add_wrapper_to_window
-  add_wrapper_to_window(window_model, window_index) {
+  add_wrapper_to_window = (window_model, window_index) => {
     window_model = add_options(window_model, { class_active: '--active' })
 
     const window_wrapper_model = get_element_model(
@@ -63,7 +64,7 @@ export default class {
         get_element_model(
           null,
           {
-            class: 'tree_label',
+            class: get_button_classes('tree_label', 'tree_label'),
             class_active: '--active',
           },
           [this.config.views.tree_labels[window_index]]

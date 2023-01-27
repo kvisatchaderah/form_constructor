@@ -1,3 +1,4 @@
+// export
 export default function (tag, props, childs) {
   // init value
   if (!tag) tag = 'div'

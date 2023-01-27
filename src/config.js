@@ -6,11 +6,11 @@ export default {
     border_radius: '4px',
     font_size: '20px',
 
-    open_method: 'dynamic', // ---- off ----
-    open_template: 'standart', // ---- off ----
-    current_style: 'light', // ---- off ----
-    position_x: 'right', // ---- off ----
-    position_y: 'middle', // ---- off ----
+    open_method: 'dynamic', // TODO ---- off ----
+    open_template: 'standart', // 'standart' 'modal' 'sidebar'
+    current_style: 'dark', // 'dark' 'light'
+    position_x: 'right',
+    position_y: 'middle',
 
     labels: true,
     placeholders: true,
@@ -26,28 +26,28 @@ export default {
     //
 
     //  widget
-    widget__ids: 'widget_ids',
-    widget__classes: 'gfdgfg',
+    widget__ids: '',
+    widget__classes: '',
 
     // widget_form
-    widget_form__ids: 'form_ids',
-    widget_form__classes: 'form_classes',
-    widget_form__class_active: 'form_class__active',
+    widget_form__ids: '',
+    widget_form__classes: '',
+    widget_form__class_active: '',
 
     // window
-    window__ids: 'window_ids',
-    window__classes: 'window_classes',
-    window__class_active: 'window_class__active',
+    window__ids: '',
+    window__classes: '',
+    window__class_active: '',
 
     // submit_button
-    submit__ids: 'submit_ids',
-    submit__classes: 'submit_classes',
-    submit__class_disabled: 'submit_class__active', // включается когда кнопка дизейблед
+    submit__ids: '',
+    submit__classes: '',
+    submit__class_disabled: '',
 
     // widget_button
-    widget_button__ids: 'widget_button_ids',
-    widget_button__classes: 'widget_button_classes',
-    widget_button__class_active: 'widget_button_class__active',
+    widget_button__ids: '',
+    widget_button__classes: '',
+    widget_button__class_active: '',
   },
 
   // views
@@ -69,7 +69,7 @@ export default {
         {
           name: 'Телефон 1',
           type: 'tel',
-          required: true,
+          required: false,
         },
       ],
 
@@ -82,7 +82,7 @@ export default {
         {
           name: 'Телефон 3',
           type: 'tel',
-          required: true,
+          required: false,
         },
       ],
     ],

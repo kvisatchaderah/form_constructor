@@ -1,5 +1,5 @@
 // helpers
-import { get_element_model } from 'm_helpers'
+import { get_element_model, get_button_classes } from '@m_helpers'
 
 // export
 export default {
@@ -10,9 +10,9 @@ export default {
       { class: 'button_container --single_button' },
       [
         get_element_model(
-          'button',
+          null,
           {
-            class: 'button --submit',
+            class: get_button_classes('submit'),
             class_disabled: '--disabled',
           },
           ['submit']

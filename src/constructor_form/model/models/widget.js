@@ -37,10 +37,10 @@ export default class {
         ),
         get_element_model(
           null,
-          get_computed_options(
-            this.config,
-            get_emitter_selector('widget_button', 'widget_button')
-          ),
+          get_computed_options(this.config, 'widget_button', {
+            class: get_emitter_selector('widget_button'),
+          }),
+
           ['widget_button']
         ),
       ]

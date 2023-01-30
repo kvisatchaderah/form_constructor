@@ -1,11 +1,13 @@
 // assets
-import { emitters } from '@assets'
+import { emitters, targets_template } from '@assets'
 
 // class
 const NodeClass = class {
   // constructor
   constructor() {
     this.emitters = emitters
+    this.targets = targets_template
+    this.active_window = 0
   }
 
   // create
@@ -17,10 +19,17 @@ const NodeClass = class {
 
 // mixins
 import node_create from './node_create'
+import node_targets from './node_targets'
 import node_emits from './node_emits'
 import node_emits_methods from './node_emits_methods'
 
-Object.assign(NodeClass.prototype, node_create, node_emits, node_emits_methods)
+Object.assign(
+  NodeClass.prototype,
+  node_create,
+  node_targets,
+  node_emits,
+  node_emits_methods
+)
 
 // export
 export default NodeClass

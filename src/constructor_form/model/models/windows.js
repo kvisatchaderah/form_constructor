@@ -58,11 +58,9 @@ export default class {
 
   // add_wrapper_to_window
   add_wrapper_to_window = (window_model, window_index) => {
-    window_model = add_options(window_model)
-
     const window_wrapper_model = get_element_model(
       null,
-      { class: 'window_wrapper' },
+      { class: dynamic_classes.window_wrapper },
       [
         get_element_model(
           null,

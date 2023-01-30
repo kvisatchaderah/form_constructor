@@ -52,7 +52,7 @@ export default class {
           id: input_id,
           placeholder: this.config.styles.placeholders ? input_config.name : '',
           type: input_config.type,
-          class: dynamic_classes.input + input_config.required,
+          class: dynamic_classes.input,
         },
         ...set_input_filters(input_config),
       }),
@@ -65,7 +65,7 @@ export default class {
       ...{
         placeholder: this.config.styles.placeholders ? input_config.name : '',
         type: input_config.type,
-        class: dynamic_classes.input + input_config.required,
+        class: dynamic_classes.input,
       },
       ...set_input_filters(input_config),
     })

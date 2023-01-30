@@ -1,5 +1,5 @@
-// assets
-import { widget_data_name } from '@assets'
+// helpers
+import { get_dynamic_class } from '@v_helpers'
 
 // export
 export default {
@@ -7,6 +7,7 @@ export default {
   on_emits() {
     this.set_emmiters_node()
     this.register_emits()
+    this.set_targets()
   },
 
   // set_emmiters_node
@@ -14,7 +15,7 @@ export default {
     Object.keys(this.emitters).forEach((key) => {
       const selector = this.emitters[key].selector
         .split(' ')
-        .map((s) => '.' + widget_data_name + '__' + s)
+        .map((s) => get_dynamic_class(s))
         .join('')
 
       this.emitters[key].nodes = document.querySelectorAll(selector)
@@ -25,7 +26,7 @@ export default {
   register_emits() {
     Object.keys(this.emitters).forEach((key) => {
       this.emitters[key].nodes.forEach((emitter_node) =>
-        emitter_node.addEventListener('click', this[key])
+        emitter_node.addEventListener('click', this[key].bind(this))
       )
     })
   },

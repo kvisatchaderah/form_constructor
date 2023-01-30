@@ -1,5 +1,5 @@
 // assets
-import { widget_data_name } from '@assets'
+import { widget_data_name, dynamic_classes } from '@assets'
 
 // export
 export default function (tag, props, childs) {
@@ -40,6 +40,15 @@ export default function (tag, props, childs) {
     // class
     if (key === 'for') {
       element.htmlFor = props[key]
+      return
+    }
+
+    // data active
+    if (key.includes('class_active')) {
+      element.setAttribute(
+        'data-' + key,
+        (props[key] + ' ' + dynamic_classes.active).trim()
+      )
       return
     }
 

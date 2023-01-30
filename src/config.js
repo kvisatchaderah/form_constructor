@@ -28,6 +28,7 @@ export default {
     //  widget
     widget__ids: '',
     widget__classes: '',
+    widget__class_active: '',
 
     // widget_form
     widget_form__ids: '',

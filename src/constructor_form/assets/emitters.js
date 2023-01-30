@@ -2,30 +2,35 @@ export default {
   // submit
   submit: {
     nodes: [],
-    selector: 'button --submit',
+    classes: 'button',
+    selector: '--submit',
   },
 
   // prev
   prev: {
     nodes: [],
-    selector: 'button --prev',
+    classes: 'button',
+    selector: '--prev',
   },
 
   // next
   next: {
     nodes: [],
-    selector: 'button --next',
+    classes: 'button',
+    selector: '--next',
   },
 
   // widget_button
   widget_button: {
     nodes: [],
-    selector: 'button --on_widget',
+    classes: 'button',
+    selector: '--on_widget',
   },
 
   // tree_label
   tree_label: {
     nodes: [],
-    selector: 'button --tree_label',
+    classes: 'button',
+    selector: '--tree_label',
   },
 }

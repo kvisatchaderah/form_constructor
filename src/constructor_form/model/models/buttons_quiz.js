@@ -12,8 +12,9 @@ import { dynamic_classes } from '@assets'
 export default {
   // quiz_mode
   create_to_quiz_mode() {
-    this.context.windows_model.value = this.context.windows_model.value.map(
-      (window_model, window_index) => {
+    this.context.windows_model.value = this.context.windows_model
+      .get()
+      .map((window_model, window_index) => {
         window_model.class_active = `
 					${window_model.class_active}
 					${dynamic_classes.active}
@@ -25,14 +26,13 @@ export default {
         }
 
         // last window
-        if (window_index === this.context.windows_model.value.length - 1) {
+        if (window_index === this.context.windows_model.get().length - 1) {
           return this.get_last_buttons_for_quiz_mode(window_model)
         }
 
         // other windows
         return this.get_standart_buttons_for_quiz_mode(window_model)
-      }
-    )
+      })
   },
 
   // first windows

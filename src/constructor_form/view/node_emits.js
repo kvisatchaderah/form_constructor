@@ -1,27 +1,32 @@
+// assets
+import { widget_data_name } from '@assets'
+
 // export
 export default {
-  // get_active_nodes
-  register_emits(active_nodes) {
-    Object.keys(active_nodes).forEach((key) => {
-      const selector = active_nodes[key].selector
+  // on_emits
+  on_emits() {
+    this.set_emmiters_node()
+    this.register_emits()
+  },
+
+  // set_emmiters_node
+  set_emmiters_node() {
+    Object.keys(this.emitters).forEach((key) => {
+      const selector = this.emitters[key].selector
         .split(' ')
-        .map((s) => '.' + s)
+        .map((s) => '.' + widget_data_name + '__' + s)
         .join('')
 
-      active_nodes[key].nodes = document.querySelectorAll(selector)
+      this.emitters[key].nodes = document.querySelectorAll(selector)
     })
-
-    return active_nodes
   },
 
   // register_emits
-  // register_emits(active_nodes) {
-  //   Object.keys(active_nodes).forEach((key) => {
-  //     active_nodes[key].nodes.forEach((active_node) =>
-  //       active_node.addEventListener('click', (event) => {
-  //         this.emit(key, event)
-  //       })
-  //     )
-  //   })
-  // },
+  register_emits() {
+    Object.keys(this.emitters).forEach((key) => {
+      this.emitters[key].nodes.forEach((emitter_node) =>
+        emitter_node.addEventListener('click', this[key])
+      )
+    })
+  },
 }

@@ -19,6 +19,6 @@ export default {
       ]
     )
 
-    this.context.windows_model.value[0].childs.push(buttons_model)
+    this.context.windows_model.get()[0].childs.push(buttons_model)
   },
 }

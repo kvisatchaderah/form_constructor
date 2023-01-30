@@ -19,11 +19,10 @@ export default class {
     this.value = get_element_model(
       null,
       get_computed_options(this.config, 'widget', {
-        'class': `
+        class: `
 					--${this.config.styles.position_x}
 					--${this.config.styles.position_y}
 				`,
-        'data-test': 'testhas is not css',
       }),
       [
         get_element_model(

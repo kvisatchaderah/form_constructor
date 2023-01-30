@@ -1,11 +1,8 @@
-import { emitters } from '@assets'
-
 // export
 export default class {
   constructor(model, view) {
     this.model = model
     this.view = view
-    this.active_nodes = emitters
 
     // init
     this.init()
@@ -18,7 +15,7 @@ export default class {
   init() {
     this.create_node_model()
     this.write_css_vars()
-    this.register_emits()
+    this.on_emits()
   }
 
   //
@@ -45,9 +42,8 @@ export default class {
   // emits
   //
 
-  // register_emits
-  register_emits() {
-    // get_active_nodes
-    this.active_nodes = this.view.node.register_emits(this.active_nodes)
+  // on_emitsy
+  on_emits() {
+    this.view.node.on_emits()
   }
 }

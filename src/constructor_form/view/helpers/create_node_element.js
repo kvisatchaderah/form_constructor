@@ -1,3 +1,6 @@
+// assets
+import { widget_data_name } from '@assets'
+
 // export
 export default function (tag, props, childs) {
   // init value
@@ -28,7 +31,7 @@ export default function (tag, props, childs) {
         .replace(/[\s\s]+/g, ' ')
         .split(' ')
       classes_list.forEach((c) => {
-        element.classList.add(c)
+        element.classList.add(widget_data_name + '__' + c)
       })
 
       return

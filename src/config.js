@@ -53,7 +53,7 @@ export default {
   // views
   views: {
     // mode
-    mode: 'tree', // 'standart' 'quiz' 'tree'
+    mode: 'quiz', // 'standart' 'quiz' 'tree'
 
     // tree
     tree_labels: ['1 tree lsbel', '2 tree label'],
@@ -64,12 +64,14 @@ export default {
         {
           name: 'Имя 1',
           type: 'text',
-          required: false,
+          required: true,
+          min: 10,
         },
         {
           name: 'Телефон 1',
           type: 'tel',
-          required: false,
+          required: true,
+          min: 6,
         },
       ],
 
@@ -77,12 +79,10 @@ export default {
         {
           name: 'Имя 2',
           type: 'text',
-          required: false,
         },
         {
           name: 'Телефон 3',
           type: 'tel',
-          required: false,
         },
       ],
     ],

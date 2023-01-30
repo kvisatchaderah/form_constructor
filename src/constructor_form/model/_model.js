@@ -14,9 +14,6 @@ export default class {
     // modules
     this.node = new NodeModel(this)
     this.css_vars = new CSSVars(this)
-
-    // init
-    this.init()
   }
 
   // init

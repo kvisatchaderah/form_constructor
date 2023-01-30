@@ -1,13 +1,7 @@
-// helpers
-import { create_node_element, is_creatable } from '@v_helpers'
-import { event_emitter as EventEmitter } from '@helpers'
-
 // class
-const NodeClass = class extends EventEmitter {
+const NodeClass = class {
   // constructor
-  constructor() {
-    super()
-  }
+  constructor() {}
 
   // create
   create(node_model) {

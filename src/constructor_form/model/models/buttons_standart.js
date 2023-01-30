@@ -1,5 +1,5 @@
 // helpers
-import { get_element_model, get_button_classes } from '@m_helpers'
+import { get_element_model, get_emitter_selector } from '@m_helpers'
 
 // export
 export default {
@@ -12,8 +12,7 @@ export default {
         get_element_model(
           null,
           {
-            class: get_button_classes('submit'),
-            class_disabled: '--disabled',
+            class: get_emitter_selector('submit'),
           },
           ['submit']
         ),

@@ -4,8 +4,11 @@ import {
   get_computed_options,
   get_unic_id,
   add_options,
-  get_button_classes,
+  get_emitter_selector,
 } from '@m_helpers'
+
+// assets
+import { dynamic_classes } from '@assets'
 
 // export
 export default class {
@@ -30,7 +33,7 @@ export default class {
     this.config.views.windows.forEach((window, window_idx) => {
       const window_model = get_element_model(
         null,
-        get_computed_options(this.config, 'window')
+        get_computed_options(this.config, dynamic_classes.window)
       )
 
       window.forEach((window_elem, window_elem_idx) => {
@@ -55,7 +58,7 @@ export default class {
 
   // add_wrapper_to_window
   add_wrapper_to_window = (window_model, window_index) => {
-    window_model = add_options(window_model, { class_active: '--active' })
+    window_model = add_options(window_model)
 
     const window_wrapper_model = get_element_model(
       null,
@@ -64,8 +67,7 @@ export default class {
         get_element_model(
           null,
           {
-            class: get_button_classes('tree_label', 'tree_label'),
-            class_active: '--active',
+            class: get_emitter_selector('tree_label', 'tree_label'),
           },
           [this.config.views.tree_labels[window_index]]
         ),

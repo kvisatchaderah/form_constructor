@@ -1,5 +1,12 @@
 // helpers
-import { get_element_model, add_options, get_button_classes } from '@m_helpers'
+import {
+  get_element_model,
+  add_options,
+  get_emitter_selector,
+} from '@m_helpers'
+
+// assets
+import { dynamic_classes } from '@assets'
 
 // Buttons
 export default {
@@ -9,7 +16,7 @@ export default {
       (window_model, window_index) => {
         window_model.class_active = `
 					${window_model.class_active}
-					--active
+					${dynamic_classes.active}
 				`
 
         // first window
@@ -31,27 +38,17 @@ export default {
   // first windows
   get_first_buttons_for_quiz_mode(window_model) {
     window_model = add_options(window_model, {
-      class: '--active',
-      class_active: '--active',
+      class: dynamic_classes.active,
     })
 
     const buttons_wrapper = get_element_model(
       null,
-      { class: 'button_container' },
+      { class: 'button_container --single_button' },
       [
         get_element_model(
           null,
           {
-            class: get_button_classes('prev', '--disable'),
-          },
-          ['prev']
-        ),
-
-        get_element_model(
-          null,
-          {
-            class: get_button_classes('next'),
-            class_disabled: '--disabled',
+            class: get_emitter_selector('next'),
           },
           ['next']
         ),
@@ -64,16 +61,12 @@ export default {
 
   // other windows
   get_standart_buttons_for_quiz_mode(window_model) {
-    window_model = add_options(window_model, {
-      class_active: '--active',
-    })
-
     window_model.childs.push(
       get_element_model(null, { class: 'button_container' }, [
         get_element_model(
           null,
           {
-            class: get_button_classes('prev'),
+            class: get_emitter_selector('prev'),
           },
           ['prev']
         ),
@@ -81,8 +74,7 @@ export default {
         get_element_model(
           null,
           {
-            class: get_button_classes('next'),
-            class_disabled: '--disabled',
+            class: get_emitter_selector('next'),
           },
           ['next']
         ),
@@ -94,16 +86,12 @@ export default {
 
   // last windows
   get_last_buttons_for_quiz_mode(window_model) {
-    window_model = add_options(window_model, {
-      class_active: '--active',
-    })
-
     window_model.childs.push(
       get_element_model(null, { class: 'button_container' }, [
         get_element_model(
           null,
           {
-            class: get_button_classes('prev'),
+            class: get_emitter_selector('prev'),
           },
           ['prev']
         ),
@@ -111,8 +99,7 @@ export default {
         get_element_model(
           null,
           {
-            class: get_button_classes('submit'),
-            class_disabled: '--disabled',
+            class: get_emitter_selector('submit'),
           },
           ['submit']
         ),

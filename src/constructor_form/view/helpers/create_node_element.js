@@ -16,12 +16,16 @@ export default function (tag, props, childs) {
   //
 
   Object.keys(props).forEach((key) => {
-    // class
+    // string treatment
+    if (typeof props[key] === 'string') {
+      props[key] = props[key].trim()
+    }
+
     if (key === 'class') {
+      // class
       const classes_list = props[key]
         .replace(/[\t|\r|\n]+/g, ' ')
         .replace(/[\s\s]+/g, ' ')
-        .trim()
         .split(' ')
       classes_list.forEach((c) => {
         element.classList.add(c)
@@ -32,24 +36,20 @@ export default function (tag, props, childs) {
 
     // class
     if (key === 'for') {
-      if (typeof props[key] === 'string') {
-        element.htmlFor = props[key].trim()
-      } else {
-        element.htmlFor = props[key]
-      }
+      element.htmlFor = props[key]
+      return
+    }
 
+    // data
+    if (key.startsWith('data-')) {
+      element.setAttribute(key, props[key])
       return
     }
 
     // general
     else {
-      if (typeof props[key] === 'string') {
-        element[key] = props[key].trim()
-        element.dataset[key] = props[key].trim()
-      } else {
-        element[key] = props[key]
-        element.dataset[key] = props[key]
-      }
+      element[key] = props[key]
+      element.dataset[key] = props[key]
     }
   })
 

@@ -1,6 +1,6 @@
 // modules
 import CSSVars from './css_vars'
-import NodeClass from './node'
+import NodeClass from './node_'
 
 // export
 export default class {

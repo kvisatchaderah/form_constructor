@@ -2,7 +2,7 @@
 import {
   get_element_model,
   get_computed_options,
-  get_button_classes,
+  get_emitter_selector,
 } from '@m_helpers'
 
 // export
@@ -19,10 +19,11 @@ export default class {
     this.value = get_element_model(
       null,
       get_computed_options(this.config, 'widget', {
-        class: `
+        'class': `
 					--${this.config.styles.position_x}
 					--${this.config.styles.position_y}
 				`,
+        'data-test': 'testhas is not css',
       }),
       [
         get_element_model(
@@ -39,7 +40,7 @@ export default class {
           null,
           get_computed_options(
             this.config,
-            get_button_classes('widget_button', 'widget_button')
+            get_emitter_selector('widget_button', 'widget_button')
           ),
           ['widget_button']
         ),

@@ -18,3 +18,19 @@ export default class {
     this.emits[type].forEach((callback) => callback(...args))
   }
 }
+
+// register_emits(active_nodes) {
+//     Object.keys(active_nodes).forEach((key) => {
+//       active_nodes[key].nodes.forEach((active_node) =>
+//         active_node.addEventListener('click', (event) => {
+//           this.emit(key, event)
+//         })
+//       )
+//     })
+//   },
+
+// register_callbacks() {
+//     Object.keys(this.active_nodes).forEach((key) => {
+//       this.view.node.on(key, this[`on_${key}`])
+//     })
+//   }

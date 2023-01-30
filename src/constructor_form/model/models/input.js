@@ -1,5 +1,8 @@
 // helpers
-import { get_element_model } from '@m_helpers'
+import { get_element_model, set_input_filters } from '@m_helpers'
+
+// assets
+import { dynamic_classes } from '@assets'
 
 // export
 export default class {
@@ -18,7 +21,7 @@ export default class {
   }
 
   // has label
-  get_with_label(window_elem, input_id) {
+  get_with_label(input_config, input_id) {
     return get_element_model('div', { class: 'input_wrapper' }, [
       get_element_model(
         'label',
@@ -26,25 +29,29 @@ export default class {
           for: input_id,
           class: 'input_label',
         },
-        [window_elem.name]
+        [input_config.name]
       ),
       get_element_model('input', {
-        id: input_id,
-        placeholder: this.config.styles.placeholders ? window_elem.name : '',
-        type: window_elem.type,
-        required: window_elem.required,
-        class: 'input',
+        ...{
+          id: input_id,
+          placeholder: this.config.styles.placeholders ? input_config.name : '',
+          type: input_config.type,
+          class: dynamic_classes.input + input_config.required,
+        },
+        ...set_input_filters(input_config),
       }),
     ])
   }
 
   // not label
-  get_without_label(window_elem) {
+  get_without_label(input_config) {
     return get_element_model('input', {
-      placeholder: this.config.styles.placeholders ? window_elem.name : '',
-      type: window_elem.type,
-      required: window_elem.required,
-      class: 'input',
+      ...{
+        placeholder: this.config.styles.placeholders ? input_config.name : '',
+        type: input_config.type,
+        class: dynamic_classes.input + input_config.required,
+      },
+      ...set_input_filters(input_config),
     })
   }
 }

@@ -2,7 +2,7 @@
 import InputModel from './models/input'
 import WidgetModel from './models/widget'
 import WindowsModel from './models/windows'
-import ButtonsModel from './models/buttons'
+import ButtonsModel from './models/buttons_'
 
 // export
 export default class {

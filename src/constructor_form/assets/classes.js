@@ -12,6 +12,10 @@ export default {
 
   // targets
   input: 'input',
+  input_wrapper: 'input_wrapper',
+  error: 'error',
   window: 'window',
   window_wrapper: 'window_wrapper',
+  form: 'widget_form',
+  widget: 'widget',
 }

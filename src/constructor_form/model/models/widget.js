@@ -1,3 +1,6 @@
+// import
+import { classes } from '@assets'
+
 // helpers
 import {
   get_element_model,
@@ -18,7 +21,7 @@ export default class {
   create() {
     this.value = get_element_model(
       null,
-      get_computed_options(this.config, 'widget', {
+      get_computed_options(this.config, classes.widget, {
         class: `
 					--${this.config.styles.position_x}
 					--${this.config.styles.position_y}
@@ -27,7 +30,7 @@ export default class {
       [
         get_element_model(
           'form',
-          get_computed_options(this.config, 'widget_form', {
+          get_computed_options(this.config, classes.form, {
             class: `
 							windows
 							--${this.config.styles.open_template}
@@ -37,10 +40,7 @@ export default class {
         ),
         get_element_model(
           null,
-          get_computed_options(this.config, 'widget_button', {
-            class: get_classes('widget_button'),
-          }),
-
+          get_computed_options(this.config, classes.widget_button),
           ['widget_button']
         ),
       ]

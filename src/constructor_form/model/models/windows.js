@@ -31,6 +31,9 @@ export default class {
   // create_standart_model
   create_standart_model() {
     this.config.views.windows.forEach((window, window_idx) => {
+      // fix if window mode === standart but windows length > 1
+      if (this.config.views.mode === 'standart' && window_idx) return
+
       const window_model = get_element_model(
         null,
         get_computed_options(this.config, classes.window)

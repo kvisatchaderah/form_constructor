@@ -26,7 +26,7 @@ export default class {
 
   // get
   get(input_config, input_id) {
-    return get_element_model(null, { class: 'input_wrapper' }, [
+    return get_element_model(null, { class: classes.input_wrapper }, [
       this.get_input(input_config, input_id),
       ...this.get_errors(input_config),
     ])
@@ -86,10 +86,9 @@ export default class {
           return get_element_model(
             null,
             {
-              class: `
-								${classes.error}
-								${classes.error}_${filter_key}
-							`,
+              class: classes.error,
+              error: filter_key,
+              class_active: classes.active,
             },
             [filters[filter_key].error_text(input_config[filter_key])]
           )

@@ -1,8 +1,8 @@
 export default {
   // required
   required: {
-    is_method: (val) => {
-      return val
+    valid_method: (val) => {
+      return val ? true : false
     },
     error_text: () => {
       return 'Поле обязательно для заполнения'
@@ -11,7 +11,7 @@ export default {
 
   // min
   min: {
-    is_method: (val, param) => {
+    valid_method: (val, param) => {
       return val.length > param
     },
     error_text: (param) => {

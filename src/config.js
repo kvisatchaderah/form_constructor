@@ -28,7 +28,7 @@ export default {
     //  widget
     widget__ids: '',
     widget__classes: '',
-    widget__class_active: '132323',
+    widget__class_active: '',
 
     // widget_form
     widget_form__ids: '',
@@ -57,7 +57,7 @@ export default {
     mode: 'quiz', // 'standart' 'quiz' 'tree'
 
     // tree
-    tree_labels: ['1 tree lsbel', '2 tree label'],
+    tree_labels: ['1 tree label', '2 tree label'],
 
     // windows
     windows: [
@@ -71,8 +71,6 @@ export default {
         {
           name: 'Телефон 1',
           type: 'tel',
-          required: true,
-          min: 6,
         },
       ],
 
@@ -80,6 +78,8 @@ export default {
         {
           name: 'Имя 2',
           type: 'text',
+          required: true,
+          min: 6,
         },
         {
           name: 'Телефон 3',

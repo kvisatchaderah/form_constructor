@@ -45,6 +45,7 @@ export default {
           null,
           {
             class: get_classes('next'),
+            class_disable: classes.disable,
           },
           ['next']
         ),
@@ -71,6 +72,7 @@ export default {
           null,
           {
             class: get_classes('next'),
+            class_disable: classes.disable,
           },
           ['next']
         ),
@@ -96,6 +98,7 @@ export default {
           null,
           {
             class: get_classes('submit'),
+            class_disable: classes.disable,
           },
           ['submit']
         ),

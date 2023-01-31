@@ -17,7 +17,7 @@ export default function (input_config) {
     .split(' ')
     .reduce(
       (res, filter) => {
-        res[`data-filter-${filter}`] = input_config[filter]
+        res[`data-filter_${filter}`] = input_config[filter]
         return res
       },
       { filters: filters_value }

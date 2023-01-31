@@ -18,8 +18,7 @@ export default class {
   }
 }
 
-// TODO write class active
-// TODO write class disable
 // TODO виджет баттон сайз
 // TODO виджет позишин 80 90 70 72%
 // TODO виджет айкон
+// TODO снять защиту в именах класса

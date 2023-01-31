@@ -1,24 +1,40 @@
 // helpers
-import { get_dynamic_class, toggle_active } from '@v_helpers'
+import { get_dynamic_class, classList_change } from '@v_helpers'
 
 // assets
 import { classes } from '@assets'
 
+// vars
+const correct_value = 'correct_value'
+
 // export
 export default {
+  //
+  // widget_button
+  //
+
+  on_widget_button() {
+    classList_change(this.targets.widget)
+  },
+
+  //
+  // tree_label
+  //
+
+  on_tree_label(e) {
+    const closest_window_wrapper = e.target.closest(
+      get_dynamic_class(classes.window_wrapper)
+    )
+    classList_change(closest_window_wrapper)
+  },
+
   //
   // submit prev next
   //
 
-  // submit
+  // on_submit
   on_submit() {
-    const current_node = this.targets.windows[this.active_window]
-
-    if (this.is_correct_values(current_node)) {
-      this.submit()
-    } else {
-      set_errors(current_node)
-    }
+    this.next_step(this.submit, null)
   },
 
   // submit
@@ -33,49 +49,127 @@ export default {
 
   // next
   on_next() {
-    const current_node = this.targets.windows[this.active_window]
-    if (this.is_correct_values(current_node)) {
-      this.change_active(1)
-    } else {
-      set_errors(current_node)
-    }
+    this.next_step(this.change_active, 1)
   },
 
   // change active
   change_active(value) {
-    toggle_active(this.targets.windows[this.active_window])
+    classList_change(this.targets.windows[this.active_window])
     this.active_window += value
-    toggle_active(this.targets.windows[this.active_window])
+    classList_change(this.targets.windows[this.active_window])
   },
 
   //
-  // correct methods
+  // next_step
   //
 
-  // is correct values
-  is_correct_values(node) {
-    const inputs = node.querySelectorAll(get_dynamic_class(classes.input))
+  next_step(next_step_method, next_step_args) {
+    //
+    // not first click
+    //
 
-    console.log('inputs: ', inputs)
-    return true
+    if (this.targets.inputs_listeners[this.active_window]) {
+      next_step_method.call(this, next_step_args)
+    }
+
+    //
+    // first click
+    //
+
+    const current_inputs = this.targets.inputs[this.active_window]
+
+    this.add_listener_to_inputs(current_inputs)
+    this.set_valid_data_to_inputs(current_inputs)
+
+    // do next method if values is valid
+    if (this.targets.inputs[this.active_window].valid) {
+      next_step_method.call(this, next_step_args)
+    }
   },
 
   //
-  // widget_button
+  // on check valid
   //
 
-  on_widget_button() {
-    toggle_active(this.targets.widget)
+  // add_listener_to_inputs
+  add_listener_to_inputs(inputs) {
+    const window_index = this.active_window
+
+    inputs.forEach((input, input_index) => {
+      input.node.addEventListener('input', () => {
+        this.check_valid(window_index, input_index)
+        // TODO add debounce
+      })
+    })
+
+    this.targets.inputs_listeners[this.active_window] = true
+  },
+
+  // check_valid_to_inputs
+  set_valid_data_to_inputs(inputs) {
+    const window_index = this.active_window
+
+    inputs.forEach((input, input_index) => {
+      this.check_valid(window_index, input_index)
+    })
   },
 
   //
-  // tree_label
+  // check_valid
   //
 
-  on_tree_label(e) {
-    const closest_window_wrapper = e.target.closest(
-      get_dynamic_class(classes.window_wrapper)
-    )
-    toggle_active(closest_window_wrapper)
+  // check_valid
+  check_valid(window_index, input_index) {
+    const current_input = this.targets.inputs[window_index][input_index]
+    const current_value = current_input.node.value
+
+    // count is valid
+    let is_valid = true
+    if (current_input.filters) {
+      current_input.filters.forEach((filter, filter_index) => {
+        const current_valid = filter.valid_method(current_value, filter.param)
+
+        // set false validation
+        if (!current_valid) {
+          is_valid = false
+        }
+
+        // change error class if need
+        classList_change(
+          current_input.errors[filter_index],
+          current_valid ? 'remove' : 'add'
+        )
+        current_input.valids[filter_index] = current_valid
+      })
+    }
+
+    // set current input valid
+    current_input.valid = is_valid
+
+    // set disable to button
+    const window_valid = this.get_window_valid()
+    if (this.targets.window_valids[this.active_window] !== window_valid) {
+      const current_next_button = this.get_current_next_button()
+      classList_change(current_next_button, 'toggle', 'class_disable')
+      this.targets.window_valids[this.active_window] = window_valid
+    }
+  },
+
+  // get_window_valid
+  get_window_valid() {
+    let window_valid = true
+
+    this.targets.inputs[this.active_window].forEach((input) => {
+      if (!input.valid) {
+        window_valid = false
+      }
+    })
+
+    return window_valid
+  },
+
+  // get_current_next_button
+  get_current_next_button() {
+    return this.emitters.next[this.active_window] || this.emitters.submit
   },
 }

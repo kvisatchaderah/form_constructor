@@ -1,12 +1,12 @@
 // assets
-import { emitters_template, targets_template } from '@assets'
+import { emitters_template } from '@assets'
 
 // class
 const NodeClass = class {
   // constructor
   constructor() {
     this.emitters = emitters_template
-    this.targets = targets_template
+    this.targets = {}
     this.active_window = 0
   }
 

@@ -28,12 +28,12 @@ export default {
     //  widget
     widget__ids: '',
     widget__classes: '',
-    widget__class_active: '1111',
+    widget__class_active: '132323',
 
     // widget_form
     widget_form__ids: '',
     widget_form__classes: '',
-    widget_form__class_active: '222',
+    widget_form__class_active: '',
 
     // window
     window__ids: '',
@@ -48,7 +48,7 @@ export default {
     // widget_button
     widget_button__ids: '',
     widget_button__classes: '',
-    widget_button__class_active: '4444',
+    widget_button__class_active: '',
   },
 
   // views

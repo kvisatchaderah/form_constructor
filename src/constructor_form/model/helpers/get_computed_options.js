@@ -1,3 +1,6 @@
+// import
+import { classes } from '@assets'
+
 // export
 export default (context, option_name, add_option = {}) => {
   // computed
@@ -12,11 +15,13 @@ export default (context, option_name, add_option = {}) => {
 	`
 
   const computed_class_active = `
+		${classes.active} 
 		${context.special[`${option_name}__class_active`] ?? ''} 
 		${add_option.class_active ?? ''}
 	`
 
   const computed_class_disabled = `
+		${classes.disable} 
 		${context.special[`${option_name}__class_disabled`] ?? ''} 
 		${add_option.class_disabled ?? ''}
 		`

@@ -50,7 +50,10 @@ export default function (tag, props, childs) {
 
     // data active
     if (key.includes('class_active')) {
-      element.setAttribute('data-' + key, props[key])
+      element.setAttribute(
+        'data-' + key,
+        props[key].replace(/[\t|\r|\n]+/g, ' ').replace(/[\s\s]+/g, ' ')
+      )
       return
     }
 

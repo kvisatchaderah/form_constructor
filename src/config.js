@@ -12,7 +12,7 @@ export default {
     position_x: 'right',
     position_y: 'middle',
 
-    labels: true,
+    labels: false,
     placeholders: true,
   },
 
@@ -28,27 +28,27 @@ export default {
     //  widget
     widget__ids: '',
     widget__classes: '',
-    widget__class_active: '',
+    widget__class_active: '1111',
 
     // widget_form
     widget_form__ids: '',
     widget_form__classes: '',
-    widget_form__class_active: '',
+    widget_form__class_active: '222',
 
     // window
     window__ids: '',
     window__classes: '',
-    window__class_active: '',
+    window__class_active: '333',
 
     // submit_button
     submit__ids: '',
     submit__classes: '',
-    submit__class_disabled: '',
+    submit__class_disabled: '5555',
 
     // widget_button
     widget_button__ids: '',
     widget_button__classes: '',
-    widget_button__class_active: '',
+    widget_button__class_active: '4444',
   },
 
   // views

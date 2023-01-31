@@ -1,5 +1,5 @@
 // helpers
-import { get_dynamic_selector, toggle_active } from '@v_helpers'
+import { get_dynamic_class, toggle_active } from '@v_helpers'
 
 // assets
 import { classes } from '@assets'
@@ -15,14 +15,14 @@ export default {
     const current_node = this.targets.windows[this.active_window]
 
     if (this.is_correct_values(current_node)) {
-      this.do_submit()
+      this.submit()
     } else {
       set_errors(current_node)
     }
   },
 
-  // do_submit
-  do_submit() {
+  // submit
+  submit() {
     console.log('submit')
   },
 
@@ -54,7 +54,7 @@ export default {
 
   // is correct values
   is_correct_values(node) {
-    const inputs = node.querySelectorAll(get_dynamic_selector(classes.input))
+    const inputs = node.querySelectorAll(get_dynamic_class(classes.input))
 
     console.log('inputs: ', inputs)
     return true
@@ -74,7 +74,7 @@ export default {
 
   on_tree_label(e) {
     const closest_window_wrapper = e.target.closest(
-      get_dynamic_selector(classes.window_wrapper)
+      get_dynamic_class(classes.window_wrapper)
     )
     toggle_active(closest_window_wrapper)
   },

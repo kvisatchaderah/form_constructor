@@ -1,3 +1,6 @@
+// helpers
+import { get_dynamic_class } from '@v_helpers'
+
 // export
 export default function (node) {
   const active_classes = node.dataset.class_active
@@ -10,5 +13,7 @@ export default function (node) {
   // multy active class
   active_classes
     .split(' ')
-    .forEach((active_class) => node.classList.toggle(active_class))
+    .forEach((active_class) =>
+      node.classList.toggle(get_dynamic_class(active_class, true))
+    )
 }

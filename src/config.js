@@ -38,12 +38,12 @@ export default {
     // window
     window__ids: '',
     window__classes: '',
-    window__class_active: '333',
+    window__class_active: '',
 
     // submit_button
     submit__ids: '',
     submit__classes: '',
-    submit__class_disabled: '5555',
+    submit__class_disabled: '',
 
     // widget_button
     widget_button__ids: '',

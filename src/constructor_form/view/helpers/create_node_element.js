@@ -1,5 +1,5 @@
 // assets
-import { widget_data_name, classes } from '@assets'
+import { widget_data_name } from '@assets'
 
 // export
 export default function (tag, props, childs) {
@@ -50,10 +50,7 @@ export default function (tag, props, childs) {
 
     // data active
     if (key.includes('class_active')) {
-      element.setAttribute(
-        'data-' + key,
-        (props[key] + ' ' + classes.active).trim()
-      )
+      element.setAttribute('data-' + key, props[key])
       return
     }
 

@@ -1,11 +1,10 @@
 // import
-import { emitters } from '@assets'
+import { classes } from '@assets'
 
 // export
 export default function (active_node_type, add_classes) {
   return `
-		${emitters[active_node_type].classes}
-		${emitters[active_node_type].selector}
+		${classes[active_node_type]}
 		${add_classes ?? ''}
 	`
 }

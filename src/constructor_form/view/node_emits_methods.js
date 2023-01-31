@@ -2,7 +2,7 @@
 import { get_dynamic_selector, toggle_active } from '@v_helpers'
 
 // assets
-import { dynamic_classes } from '@assets'
+import { classes } from '@assets'
 
 // export
 export default {
@@ -11,7 +11,7 @@ export default {
   //
 
   // submit
-  submit() {
+  on_submit() {
     const current_node = this.targets.windows[this.active_window]
 
     if (this.is_correct_values(current_node)) {
@@ -27,12 +27,12 @@ export default {
   },
 
   // prev
-  prev() {
+  on_prev() {
     this.change_active(-1)
   },
 
   // next
-  next() {
+  on_next() {
     const current_node = this.targets.windows[this.active_window]
     if (this.is_correct_values(current_node)) {
       this.change_active(1)
@@ -54,9 +54,7 @@ export default {
 
   // is correct values
   is_correct_values(node) {
-    const inputs = node.querySelectorAll(
-      get_dynamic_selector(dynamic_classes.input)
-    )
+    const inputs = node.querySelectorAll(get_dynamic_selector(classes.input))
 
     console.log('inputs: ', inputs)
     return true
@@ -66,7 +64,7 @@ export default {
   // widget_button
   //
 
-  widget_button() {
+  on_widget_button() {
     toggle_active(this.targets.widget)
   },
 
@@ -74,9 +72,9 @@ export default {
   // tree_label
   //
 
-  tree_label(e) {
+  on_tree_label(e) {
     const closest_window_wrapper = e.target.closest(
-      get_dynamic_selector(dynamic_classes.window_wrapper)
+      get_dynamic_selector(classes.window_wrapper)
     )
     toggle_active(closest_window_wrapper)
   },

@@ -14,3 +14,7 @@ export default class {
     this.Controller = new Controller(this.Model, this.View)
   }
 }
+
+// TODO виджет баттон сайз
+// TODO виджет позишин 80 90 70 72%
+// TODO виджет айкон

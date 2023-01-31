@@ -2,7 +2,7 @@
 import { get_element_model, set_input_filters } from '@m_helpers'
 
 // assets
-import { dynamic_classes, filters } from '@assets'
+import { classes, filters } from '@assets'
 
 // export
 export default class {
@@ -52,7 +52,7 @@ export default class {
           id: input_id,
           placeholder: this.config.styles.placeholders ? input_config.name : '',
           type: input_config.type,
-          class: dynamic_classes.input,
+          class: classes.input,
         },
         ...set_input_filters(input_config),
       }),
@@ -65,7 +65,7 @@ export default class {
       ...{
         placeholder: this.config.styles.placeholders ? input_config.name : '',
         type: input_config.type,
-        class: dynamic_classes.input,
+        class: classes.input,
       },
       ...set_input_filters(input_config),
     })
@@ -87,8 +87,8 @@ export default class {
             null,
             {
               class: `
-								${dynamic_classes.error}
-								${dynamic_classes.error}_${filter_key}
+								${classes.error}
+								${classes.error}_${filter_key}
 							`,
             },
             [filters[filter_key].error_text(input_config[filter_key])]

@@ -8,7 +8,7 @@ export default function (tag, options, childs) {
     options: options
       ? {
           ...options,
-          ...{ [widget_data_name]: '' },
+          ...{ [widget_data_name]: 'true' },
         }
       : {},
     childs: childs ?? [],

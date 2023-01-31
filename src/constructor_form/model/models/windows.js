@@ -4,11 +4,11 @@ import {
   get_computed_options,
   get_unic_id,
   add_options,
-  get_emitter_selector,
+  get_classes,
 } from '@m_helpers'
 
 // assets
-import { dynamic_classes } from '@assets'
+import { classes } from '@assets'
 
 // export
 export default class {
@@ -33,7 +33,7 @@ export default class {
     this.config.views.windows.forEach((window, window_idx) => {
       const window_model = get_element_model(
         null,
-        get_computed_options(this.config, dynamic_classes.window)
+        get_computed_options(this.config, classes.window)
       )
 
       window.forEach((window_elem, window_elem_idx) => {
@@ -60,12 +60,12 @@ export default class {
   add_wrapper_to_window = (window_model, window_index) => {
     const window_wrapper_model = get_element_model(
       null,
-      { class: dynamic_classes.window_wrapper },
+      { class: classes.window_wrapper },
       [
         get_element_model(
           null,
           {
-            class: get_emitter_selector('tree_label', 'tree_label'),
+            class: get_classes('tree_label', 'tree_label'),
           },
           [this.config.views.tree_labels[window_index]]
         ),

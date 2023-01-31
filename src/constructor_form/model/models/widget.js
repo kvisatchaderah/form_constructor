@@ -2,7 +2,7 @@
 import {
   get_element_model,
   get_computed_options,
-  get_emitter_selector,
+  get_classes,
 } from '@m_helpers'
 
 // export
@@ -38,7 +38,7 @@ export default class {
         get_element_model(
           null,
           get_computed_options(this.config, 'widget_button', {
-            class: get_emitter_selector('widget_button'),
+            class: get_classes('widget_button'),
           }),
 
           ['widget_button']

@@ -1,12 +1,8 @@
 // helpers
-import {
-  get_element_model,
-  add_options,
-  get_emitter_selector,
-} from '@m_helpers'
+import { get_element_model, add_options, get_classes } from '@m_helpers'
 
 // assets
-import { dynamic_classes } from '@assets'
+import { classes } from '@assets'
 
 // Buttons
 export default {
@@ -17,7 +13,7 @@ export default {
       .map((window_model, window_index) => {
         window_model.class_active = `
 					${window_model.class_active}
-					${dynamic_classes.active}
+					${classes.active}
 				`
 
         // first window
@@ -38,7 +34,7 @@ export default {
   // first windows
   get_first_buttons_for_quiz_mode(window_model) {
     window_model = add_options(window_model, {
-      class: dynamic_classes.active,
+      class: classes.active,
     })
 
     const buttons_wrapper = get_element_model(
@@ -48,7 +44,7 @@ export default {
         get_element_model(
           null,
           {
-            class: get_emitter_selector('next'),
+            class: get_classes('next'),
           },
           ['next']
         ),
@@ -66,7 +62,7 @@ export default {
         get_element_model(
           null,
           {
-            class: get_emitter_selector('prev'),
+            class: get_classes('prev'),
           },
           ['prev']
         ),
@@ -74,7 +70,7 @@ export default {
         get_element_model(
           null,
           {
-            class: get_emitter_selector('next'),
+            class: get_classes('next'),
           },
           ['next']
         ),
@@ -91,7 +87,7 @@ export default {
         get_element_model(
           null,
           {
-            class: get_emitter_selector('prev'),
+            class: get_classes('prev'),
           },
           ['prev']
         ),
@@ -99,7 +95,7 @@ export default {
         get_element_model(
           null,
           {
-            class: get_emitter_selector('submit'),
+            class: get_classes('submit'),
           },
           ['submit']
         ),

@@ -13,6 +13,8 @@ export default {
   // widget_button
   //
 
+  // TODO переделать на вью модел
+
   on_widget_button() {
     classList_change(this.targets.widget)
   },
@@ -70,6 +72,7 @@ export default {
 
     if (this.targets.inputs_listeners[this.active_window]) {
       next_step_method.call(this, next_step_args)
+      return
     }
 
     //
@@ -82,7 +85,7 @@ export default {
     this.set_valid_data_to_inputs(current_inputs)
 
     // do next method if values is valid
-    if (this.targets.inputs[this.active_window].valid) {
+    if (this.targets.window_valids[this.active_window]) {
       next_step_method.call(this, next_step_args)
     }
   },
@@ -148,11 +151,15 @@ export default {
 
     // set disable to button
     const window_valid = this.get_window_valid()
-    if (this.targets.window_valids[this.active_window] !== window_valid) {
-      const current_next_button = this.get_current_next_button()
-      classList_change(current_next_button, 'toggle', 'class_disable')
-      this.targets.window_valids[this.active_window] = window_valid
-    }
+    const current_next_button = this.get_current_next_button()
+
+    classList_change(
+      current_next_button,
+      window_valid ? 'remove' : 'add',
+      'class_disable'
+    )
+
+    this.targets.window_valids[this.active_window] = window_valid
   },
 
   // get_window_valid
@@ -170,6 +177,6 @@ export default {
 
   // get_current_next_button
   get_current_next_button() {
-    return this.emitters.next[this.active_window] || this.emitters.submit
+    return this.emitters.next[this.active_window] || this.emitters.submit[0]
   },
 }

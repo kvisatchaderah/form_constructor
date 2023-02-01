@@ -1,19 +1,26 @@
 export default {
   // styles
   styles: {
-    background_color: '#ffffff',
-    font_color: '#000000',
-    border_radius: '4px',
-    font_size: '20px',
-
+    // js script
     open_method: 'dynamic', // TODO ---- off ----
+
+    // js vars
+    labels: false,
+    placeholders: true,
+
+    // classes
     open_template: 'standart', // 'standart' 'modal' 'sidebar'
-    current_style: 'dark', // 'dark' 'light'
     position_x: 'right',
     position_y: 'middle',
 
-    labels: false,
-    placeholders: true,
+    // vars
+    vars: {
+      background_color: '#ffffff',
+      font_color: '#000000',
+      border_radius: '4px',
+      font_size: '20px',
+      card_padding: '12px',
+    },
   },
 
   // special
@@ -63,26 +70,25 @@ export default {
     windows: [
       [
         {
-          name: 'Имя 1',
+          name: 'text 1',
           type: 'text',
           required: true,
-          min: 10,
         },
         {
-          name: 'Телефон 1',
+          name: 'tel 1',
           type: 'tel',
+          min: 8,
         },
       ],
 
       [
         {
-          name: 'Имя 2',
+          name: 'text 2',
           type: 'text',
-          required: true,
           min: 6,
         },
         {
-          name: 'Телефон 3',
+          name: 'tel 2',
           type: 'tel',
         },
       ],

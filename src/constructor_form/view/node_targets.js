@@ -43,6 +43,7 @@ export default {
       // push result
       this.targets.inputs.push(input_models)
       this.targets.inputs_listeners.push(false)
+      this.targets.window_valids.push(true)
     })
   },
 

@@ -1,6 +1,9 @@
 // assets
 import { widget_data_name } from '@assets'
 
+// icons
+import icons from '@icons'
+
 // export
 export default function (tag, props, childs) {
   // init value
@@ -12,7 +15,10 @@ export default function (tag, props, childs) {
   // create element
   //
 
-  const element = document.createElement(tag)
+  let element = document.createElement(tag)
+
+  // svg treatment
+  if (tag === 'svg') element = create_scg(props)
 
   //
   // write props
@@ -84,4 +90,11 @@ export default function (tag, props, childs) {
 
   // return
   return element
+}
+
+// create_scg
+const create_scg = ({ svg_name }) => {
+  const element = document.createElement('div')
+  element.innerHTML = icons[svg_name]
+  return element.querySelector('svg')
 }

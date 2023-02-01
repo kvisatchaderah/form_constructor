@@ -29,7 +29,7 @@ export default class {
       }),
       [
         get_element_model(
-          'form',
+          null,
           get_computed_options(this.config, classes.form, {
             class: `
 							windows
@@ -40,8 +40,15 @@ export default class {
         ),
         get_element_model(
           null,
-          get_computed_options(this.config, classes.widget_button),
-          ['widget_button']
+          get_computed_options(this.config, classes.widget_button, {
+            class: `
+							widget_button
+						`,
+          }),
+          [
+            get_element_model('svg', { svg_name: 'message_square' }),
+            get_element_model('span', null, ['widget_button']),
+          ]
         ),
       ]
     )

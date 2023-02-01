@@ -1,3 +1,9 @@
+// helpers
+import { get_dynamic_class } from '@v_helpers'
+
+// assets
+import { classes } from '@assets'
+
 // export
 export default class {
   // add vars
@@ -8,7 +14,7 @@ export default class {
   // add_var
   add_var(single_var) {
     document
-      .querySelector(':root')
+      .querySelector(get_dynamic_class(classes.widget))
       .style.setProperty(single_var.key, single_var.value)
   }
 }

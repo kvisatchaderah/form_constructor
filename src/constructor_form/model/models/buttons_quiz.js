@@ -47,7 +47,7 @@ export default {
             class: get_classes('next'),
             class_disable: classes.disable,
           },
-          ['next']
+          ['Дальше']
         ),
       ]
     )
@@ -65,7 +65,7 @@ export default {
           {
             class: get_classes('prev'),
           },
-          ['prev']
+          ['Назад']
         ),
 
         get_element_model(
@@ -74,7 +74,7 @@ export default {
             class: get_classes('next'),
             class_disable: classes.disable,
           },
-          ['next']
+          ['Дальше']
         ),
       ])
     )
@@ -91,7 +91,7 @@ export default {
           {
             class: get_classes('prev'),
           },
-          ['prev']
+          ['Назад']
         ),
 
         get_element_model(
@@ -100,7 +100,7 @@ export default {
             class: get_classes('submit'),
             class_disable: classes.disable,
           },
-          ['submit']
+          ['Отправить']
         ),
       ])
     )

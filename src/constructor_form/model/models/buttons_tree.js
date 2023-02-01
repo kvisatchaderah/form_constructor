@@ -14,7 +14,7 @@ export default {
           {
             class: get_classes('submit'),
           },
-          ['submit']
+          ['Отправить']
         ),
       ]
     )

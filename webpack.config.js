@@ -46,6 +46,9 @@ module.exports = ({ dev, serve }) => {
         '@c_assets':
           __dirname + '/src/constructor_form/controller/assets/_assets',
 
+        // icons
+        '@icons': __dirname + '/src/constructor_form/icons/_icons',
+
         // styles
         '@styles': __dirname + '/src/constructor_form/styles',
 

@@ -6,10 +6,12 @@ export default (context, option_name, add_option = {}) => {
   // computed
   const computed_id = `
 		${context.special[`${option_name}__ids`]}
+		
 	`
 
   const computed_class = `
 		${option_name}
+		${classes[option_name] ?? ''} 
 		${context.special[`${option_name}__classes`] ?? ''}
 		${add_option.class ?? ''}
 	`

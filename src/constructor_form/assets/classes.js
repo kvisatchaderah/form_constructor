@@ -16,6 +16,6 @@ export default {
   error: 'error',
   window: 'window',
   window_wrapper: 'window_wrapper',
-  form: 'widget_form',
+  widget_form: 'widget_form',
   widget: 'widget',
 }

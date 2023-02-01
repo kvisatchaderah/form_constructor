@@ -1,4 +1,42 @@
 #{$id}
-	&.#{$cls}widget.#{$cls}--active
-		.#{$cls}widget_button
+	//
+	// template
+	//
+
+	&.#{$cls}widget_button
+		cursor: pointer
+
+	//
+	// open
+	//
+
+	&.#{$cls}widget_button.#{$cls}--open
+		@extend .card
+		@extend .fc
+
+		border-radius: 24px
+		width: 60px
+		height: 60px
+
+		// not active
+		.#{$cls}widget.#{$cls}--active &
 			display: none
+
+	//
+	// close
+	//
+
+	&.#{$cls}widget_button.#{$cls}--close
+		position: absolute
+
+		top: -50px
+		right: 0
+		width: 50px
+		height: 50px
+
+		color: $bc
+
+		opacity: $op
+
+		&:hover
+			opacity: 1

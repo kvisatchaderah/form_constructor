@@ -36,7 +36,7 @@ export default class {
 
       const window_model = get_element_model(
         null,
-        get_computed_options(this.config, classes.window)
+        get_computed_options(this.config, 'window')
       )
 
       window.forEach((window_elem, window_elem_idx) => {

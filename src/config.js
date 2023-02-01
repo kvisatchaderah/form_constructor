@@ -20,6 +20,7 @@ export default {
       border_radius: '4px',
       font_size: '20px',
       card_padding: '12px',
+      elements_padding: '8px',
     },
   },
 

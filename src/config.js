@@ -9,28 +9,22 @@ export default {
     label_overflow: true,
     placeholders: true,
     shadow: true,
+    button_variant: 'standart', // standart
 
     // classes
-
-    // 'standart' 'modal' 'sidebar'
-    open_template: 'standart',
-    // side_top side_bottom side_left side_right
-    side: 'side_right',
-
-    // left center right
-    // top middle bottom
-    position: 'bottom',
+    open_template: 'standart', // standart modal sidebar
+    side: 'side_right', // side_top side_bottom side_left side_right
+    position: 'bottom', // left center right // top middle bottom
 
     // vars
-
     vars: {
       background_color: '#ffffff',
       font_color: '#000000',
-      border_radius: '4px',
       font_size: '20px',
-      card_padding: '12px',
-      elements_padding: '8px',
-      // TODO добавлять варсы для позишин в значениях и тд
+      widget_width: '500px',
+
+      template_distance: '8px',
+      template_border_radius: '4px',
     },
   },
 
@@ -73,8 +67,7 @@ export default {
   views: {
     // mode
 
-    // 'standart' 'quiz' 'tree'
-    mode: 'quiz',
+    mode: 'quiz', // standart quiz tree
 
     // tree
     tree_labels: ['1 tree label', '2 tree label'],
@@ -86,6 +79,7 @@ export default {
           name: 'texgfdgdfgdfgfdgfdgdft 1',
           type: 'text',
           required: true,
+          min: 8,
         },
         {
           name: 'tel 1',

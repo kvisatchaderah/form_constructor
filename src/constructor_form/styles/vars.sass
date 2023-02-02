@@ -1,23 +1,33 @@
 // prop
 $unic_data_name: ''
 
-// cls & data selctor	
+//
+//  cuts
+//
+
 $id: [data-#{$unic_data_name}]
 $cls: #{$unic_data_name}__
 
-// config vars
+//
+// vars
+//
+
+// general
 $bc: var(--#{$unic_data_name}__background_color)
 $fc: var(--#{$unic_data_name}__font_color)
 $fs: var(--#{$unic_data_name}__font_size)
-$brad: var(--#{$unic_data_name}__border_radius)
-$card_p: var(--#{$unic_data_name}__card_padding)
-$p: var(--#{$unic_data_name}__elements_padding)
-$pl: calc(2 * var(--#{$unic_data_name}__elements_padding))
+$widget_width: var(--#{$unic_data_name}__widget_width)
 
+$p: var(--#{$unic_data_name}__template_distance)
+$brad: var(--#{$unic_data_name}__template_border_radius)
+
+// rgb
 $fc_rgb: var(--#{$unic_data_name}__font_color_rgb)
 $bc_rgb: var(--#{$unic_data_name}__background_color_rgb)
 
-// local vars
+// computed vars
+$pl: calc(2.5 * var(--#{$unic_data_name}__template_distance))
 
+// local vars
 $op: 0.6
 $z: 1000000

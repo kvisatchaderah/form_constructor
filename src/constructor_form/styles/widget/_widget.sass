@@ -1,5 +1,6 @@
 #{$id}.#{$cls}widget
 	width: 300px
+	width: $widget_width
 	max-width: 80%
 
 	// position
@@ -7,9 +8,9 @@
 
 	// top bottom
 	&.#{$cls}--side_top
-		top: 10px
+		top: $p
 	&.#{$cls}--side_bottom
-		bottom: 10px
+		bottom: $p
 
 	&.#{$cls}--left
 		left: 20%
@@ -21,9 +22,9 @@
 
 	// left right
 	&.#{$cls}--side_right
-		right: 10px
+		right: $p
 	&.#{$cls}--side_left
-		left: 10px
+		left: $p
 
 	&.#{$cls}--top
 		top: 20%

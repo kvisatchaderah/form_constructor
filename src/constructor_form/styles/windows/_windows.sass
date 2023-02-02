@@ -3,5 +3,61 @@
 		display: none
 
 	&.#{$cls}window
-		@extend .fc
-		@extend .column
+		width: 100%
+
+		display: grid
+		column-gap: $p
+		row-gap: $pl
+
+		//
+		// general
+		//
+
+		grid-template-columns: repeat(1, 1fr)
+
+		.#{$cls}input
+			grid-column: span 1
+
+		.#{$cls}error
+			grid-column: span 1
+
+		.#{$cls}button_container
+			grid-column: span 1
+
+		//
+		// has_labels
+		//
+
+		&.#{$cls}--has_labels
+			grid-template-columns: repeat(5, 1fr)
+
+			.#{$cls}input_label
+				grid-column: span 2
+
+			.#{$cls}input
+				grid-column: span 3
+
+			.#{$cls}error
+				grid-column: span 5
+
+			.#{$cls}button_container
+				grid-column: span 5
+
+		//
+		// is_labels_overflow
+		//
+
+		&.#{$cls}--is_labels_overflow
+			grid-template-columns: repeat(5, 1fr)
+
+			.#{$cls}input_label
+				grid-column: span 2
+
+			.#{$cls}input
+				grid-column: span 3
+
+			.#{$cls}error
+				grid-column: span 5
+
+			.#{$cls}button_container
+				grid-column: span 5

@@ -6,9 +6,8 @@
 	background-color: $bc
 	color: $fc
 	font-size: $fs
-	border-radius: $brad
-
-	padding: $card_p
+	border-radius: calc(3 * $brad)
+	padding: calc(3 * $p) calc(2 * $p)
 
 	#{$id}.#{$cls}--shadow &
 		box-shadow: 0 0 12px 0 rgba($fc_rgb, .50), 0 2px 4px 0 rgba($bc_rgb, .25)

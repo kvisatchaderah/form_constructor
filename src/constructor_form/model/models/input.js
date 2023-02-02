@@ -1,3 +1,7 @@
+// TODO rewrite after
+// delete input wrapper
+// add unic id
+
 // helpers
 import { get_element_model, set_input_filters } from '@m_helpers'
 
@@ -26,10 +30,10 @@ export default class {
 
   // get
   get(input_config, input_id) {
-    return get_element_model(null, { class: classes.input_wrapper }, [
-      this.get_input(input_config, input_id),
-      ...this.get_errors(input_config),
-    ])
+    return [
+      ...this.get_input(input_config, input_id),
+      ...this.get_errors(input_config, input_id),
+    ]
   }
 
   //
@@ -38,7 +42,7 @@ export default class {
 
   // has label
   get_with_label(input_config, input_id) {
-    return get_element_model(null, { class: 'label_wrapper' }, [
+    return [
       get_element_model(
         'label',
         {
@@ -50,32 +54,36 @@ export default class {
       get_element_model('input', {
         ...{
           id: input_id,
+          input_id: input_id,
           placeholder: this.config.styles.placeholders ? input_config.name : '',
           type: input_config.type,
           class: classes.input,
         },
         ...set_input_filters(input_config),
       }),
-    ])
+    ]
   }
 
   // not label
-  get_without_label(input_config) {
-    return get_element_model('input', {
-      ...{
-        placeholder: this.config.styles.placeholders ? input_config.name : '',
-        type: input_config.type,
-        class: classes.input,
-      },
-      ...set_input_filters(input_config),
-    })
+  get_without_label(input_config, input_id) {
+    return [
+      get_element_model('input', {
+        ...{
+          input_id: input_id,
+          placeholder: this.config.styles.placeholders ? input_config.name : '',
+          type: input_config.type,
+          class: classes.input,
+        },
+        ...set_input_filters(input_config),
+      }),
+    ]
   }
 
   //
   // errors
   //
 
-  get_errors(input_config) {
+  get_errors(input_config, input_id) {
     return (
       Object.keys(filters)
         .map((filter_key) => {
@@ -86,6 +94,7 @@ export default class {
           return get_element_model(
             null,
             {
+              input_id: input_id,
               class: classes.error,
               error: filter_key,
               class_active: classes.active,

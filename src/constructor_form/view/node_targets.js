@@ -38,7 +38,7 @@ export default {
       )
 
       // set input models
-      const input_models = [...inputs].map(this.get_input_model)
+      const input_models = [...inputs].map(this.get_input_model.bind(this))
 
       // push result
       this.targets.inputs.push(input_models)
@@ -69,17 +69,10 @@ export default {
       }
     })
 
-    const valids = []
-    const errors = []
-
-    input_filters.forEach((input_filter) => {
-      valids.push(true)
-      errors.push(
-        input
-          .closest(get_dynamic_class(classes.input_wrapper))
-          .querySelector(`div[data-error="${input_filter.key}"]`)
-      )
-    })
+    const valids = [...Array(input_filters.length)].map((_) => true)
+    const errors = this.targets.widget.querySelectorAll(
+      `div[data-input_id="${input.dataset.input_id}"]`
+    )
 
     // return
     return {

@@ -2,4 +2,21 @@
 	&.#{$cls}error:not(.#{$cls}--active)
 		display: none
 
-	&.#{$cls}label_wrapper
+	&.#{$cls}input_label
+
+		// is_labels_overflow
+		.#{$cls}--is_labels_overflow &
+			position: relative
+
+			overflow: hidden
+			white-space: nowrap
+			&::after
+				position: absolute
+				content: ''
+
+				right: 0
+				top: 0
+				bottom: 0
+				width: $pl
+
+				background-image: linear-gradient(90deg, rgba($bc_rgb, 0), rgba($bc_rgb, 1))

@@ -18,7 +18,13 @@ export default class {
     if (this.context.special.no_style) return
 
     this.add_vars()
-    this.add_rgb_colors()
+
+    if (
+      this.context.styles.vars.font_color &&
+      this.context.styles.vars.background_color
+    ) {
+      this.add_rgb_colors()
+    }
   }
 
   // add_var

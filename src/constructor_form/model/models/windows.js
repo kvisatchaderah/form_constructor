@@ -3,7 +3,6 @@ import {
   get_element_model,
   get_computed_options,
   get_unic_id,
-  add_options,
   get_classes,
 } from '@m_helpers'
 
@@ -36,14 +35,24 @@ export default class {
 
       const window_model = get_element_model(
         null,
-        get_computed_options(this.config, 'window')
+        get_computed_options(this.config, 'window', {
+          class: `
+						${this.config.styles.labels ? '--has_labels' : ''}
+						${this.config.styles.label_overflow ? '--is_labels_overflow' : ''}
+					`,
+        })
       )
 
       window.forEach((window_elem, window_elem_idx) => {
         const input_id = get_unic_id(window_idx, window_elem_idx)
-        const input_model = this.context.input_model.get(window_elem, input_id)
+        const input_model_array = this.context.input_model.get(
+          window_elem,
+          input_id
+        )
 
-        window_model.childs.push(input_model)
+        input_model_array.forEach((input_model) =>
+          window_model.childs.push(input_model)
+        )
       })
 
       this.value.push(window_model)

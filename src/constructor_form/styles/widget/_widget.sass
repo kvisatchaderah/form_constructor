@@ -5,10 +5,26 @@
 	// position
 	position: fixed
 
-	&.#{$cls}--right
-		right: 10px
+	// top bottom
+	&.#{$cls}--side_top
+		top: 10px
+	&.#{$cls}--side_bottom
+		bottom: 10px
+
 	&.#{$cls}--left
+		left: 20%
+	&.#{$cls}--center
+		left: 50%
+		transform: translate3D(-50%, 0, 0)
+	&.#{$cls}--right
+		right: 20%
+
+	// left right
+	&.#{$cls}--side_right
+		right: 10px
+	&.#{$cls}--side_left
 		left: 10px
+
 	&.#{$cls}--top
 		top: 20%
 	&.#{$cls}--middle
@@ -18,5 +34,8 @@
 		bottom: 20%
 
 	// not active
-	&:not(.#{$cls}--active)
+	&.#{$cls}--side_right:not(.#{$cls}--active)
 		@extend .fe
+
+	&.#{$cls}--side_left:not(.#{$cls}--active)
+		@extend .fs

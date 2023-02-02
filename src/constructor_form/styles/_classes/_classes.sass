@@ -9,18 +9,30 @@
 	border-radius: $brad
 
 	padding: $card_p
-	box-shadow: 0 0 30px 0 rgba($fc_rgb, .68), 0 2px 4px 0 rgba($bc_rgb, .07)
+
+	#{$id}.#{$cls}--shadow &
+		box-shadow: 0 0 12px 0 rgba($fc_rgb, .50), 0 2px 4px 0 rgba($bc_rgb, .25)
 
 .fc
 	display: flex
 	justify-content: center
 	align-items: center
 
-	gap: $p
+	gap: $pl
 
 .fe
 	display: flex
 	justify-content: flex-end
 	align-items: center
 
-	gap: $p
+	gap: $pl
+
+.fs
+	display: flex
+	justify-content: flex-start
+	align-items: center
+
+	gap: $pl
+
+.column
+	flex-direction: column

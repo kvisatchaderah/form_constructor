@@ -5,15 +5,24 @@ export default {
     open_method: 'dynamic', // TODO ---- off ----
 
     // js vars
-    labels: false,
+    labels: true,
+    label_overflow: true,
     placeholders: true,
+    shadow: true,
 
     // classes
-    open_template: 'standart', // 'standart' 'modal' 'sidebar'
-    position_x: 'right',
-    position_y: 'middle',
+
+    // 'standart' 'modal' 'sidebar'
+    open_template: 'standart',
+    // side_top side_bottom side_left side_right
+    side: 'side_right',
+
+    // left center right
+    // top middle bottom
+    position: 'bottom',
 
     // vars
+
     vars: {
       background_color: '#ffffff',
       font_color: '#000000',
@@ -21,6 +30,7 @@ export default {
       font_size: '20px',
       card_padding: '12px',
       elements_padding: '8px',
+      // TODO добавлять варсы для позишин в значениях и тд
     },
   },
 
@@ -62,7 +72,9 @@ export default {
   // views
   views: {
     // mode
-    mode: 'quiz', // 'standart' 'quiz' 'tree'
+
+    // 'standart' 'quiz' 'tree'
+    mode: 'quiz',
 
     // tree
     tree_labels: ['1 tree label', '2 tree label'],
@@ -71,7 +83,7 @@ export default {
     windows: [
       [
         {
-          name: 'text 1',
+          name: 'texgfdgdfgdfgfdgfdgdft 1',
           type: 'text',
           required: true,
         },
@@ -84,7 +96,7 @@ export default {
 
       [
         {
-          name: 'text 2',
+          name: 'texgfddgfdfdgdft 2',
           type: 'text',
           min: 6,
         },

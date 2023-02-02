@@ -23,8 +23,9 @@ export default class {
       null,
       get_computed_options(this.config, 'widget', {
         class: `
-					--${this.config.styles.position_x}
-					--${this.config.styles.position_y}
+					${this.config.styles.side ? '--' + this.config.styles.side : ''}
+					${this.config.styles.position ? '--' + this.config.styles.position : ''}
+					${this.config.styles.shadow ? '--shadow' : ''}
 				`,
       }),
       [
@@ -33,7 +34,11 @@ export default class {
           get_computed_options(this.config, 'widget_form', {
             class: `
 							windows
-							--${this.config.styles.open_template}
+							${
+                this.config.styles.open_template
+                  ? '--' + this.config.styles.open_template
+                  : ''
+              }
 						`,
           }),
           [

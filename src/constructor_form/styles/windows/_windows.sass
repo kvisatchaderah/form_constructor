@@ -3,6 +3,5 @@
 		display: none
 
 	&.#{$cls}window
-		display: grid
-		col-gap: $pl
-		row-gap: $p
+		@extend .fc
+		@extend .column

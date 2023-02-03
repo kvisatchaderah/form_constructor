@@ -13,27 +13,17 @@ export default class {
   // constructor
   constructor(context, config) {
     this.config = config
-
-    this.set()
+    this.value = null
   }
 
   //
-  // set get
+  // create
   //
 
-  // set
-  set() {
+  create() {
     this.get_input = this.config.styles.labels
       ? this.get_with_label
       : this.get_without_label
-  }
-
-  // get
-  get(input_config, input_id) {
-    return [
-      ...this.get_input(input_config, input_id),
-      this.get_errors(input_config, input_id),
-    ]
   }
 
   //
@@ -47,7 +37,7 @@ export default class {
         'label',
         {
           for: input_id,
-          class: 'input_label',
+          class: 'label',
         },
         [input_config.name]
       ),
@@ -109,5 +99,16 @@ export default class {
     } else {
       return get_element_model(null, { class: classes.errors })
     }
+  }
+
+  //
+  // get
+  //
+
+  get(input_config, input_id) {
+    return [
+      ...this.get_input(input_config, input_id),
+      this.get_errors(input_config, input_id),
+    ]
   }
 }

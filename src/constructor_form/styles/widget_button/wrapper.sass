@@ -1,0 +1,41 @@
+#{$id}
+	&.#{$cls}widget_button_wrapper
+		position: fixed
+
+		// top bottom
+		.#{$cls}--side_top &
+			top: $p
+		.#{$cls}--side_bottom &
+			bottom: $p
+
+		.#{$cls}--left &
+			left: 20%
+		.#{$cls}--center &
+			left: 50%
+			transform: translate3D(-50%, 0, 0)
+		.#{$cls}--right &
+			right: 20%
+
+		// left right
+		.#{$cls}--side_right &
+			right: $p
+		.#{$cls}--side_left &
+			left: $p
+
+		.#{$cls}--top &
+			top: 20%
+		.#{$cls}--middle &
+			top: 50%
+			transform: translate3D(0, -50%, 0)
+		.#{$cls}--bottom &
+			bottom: 20%
+
+		//
+		// not active
+		//
+
+		.#{$cls}--side_right:not(.#{$cls}--active)	&
+			@extend .#{$cls}fe
+
+		.#{$cls}--side_left:not(.#{$cls}--active)	&
+			@extend .#{$cls}fs

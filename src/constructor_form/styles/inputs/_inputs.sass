@@ -1,54 +1,5 @@
-#{$id}
-	&.#{$cls}error:not(.#{$cls}--active)
-		display: none
-
-	//
-	// input
-	// 
-
-	&.#{$cls}input
-		outline: none
-		font-size: $fsl
-		padding: $p
-		border-radius: $brad
-
-	//
-	// label
-	//
-
-	&.#{$cls}input_label
-		@extend .#{$cls}fs
-		opacity: $ops
-
-		// is_labels_overflow
-		.#{$cls}--is_labels_overflow &
-			position: relative
-
-			overflow: hidden
-			white-space: nowrap
-			&::after
-				position: absolute
-				content: ''
-
-				right: 0
-				top: 0
-				bottom: 0
-				width: $pl
-
-				background-image: linear-gradient(90deg, rgba($bc_rgb, 0), rgba($bc_rgb, 1))
-
-	//
-	// tree_label
-	//
-
-	&.#{$cls}tree_label
-		justify-content: flex-start
-		box-shadow: none !important
-
-	//
-	// errors
-	//
-
-	&.#{$cls}error
-		font-size: $fss
-		opacity: $ops
+@import './not_active'
+@import './tree_label'
+@import './input'
+@import './label'
+@import './error'

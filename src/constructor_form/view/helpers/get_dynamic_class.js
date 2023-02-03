@@ -1,6 +1,8 @@
 // assets
 import { widget_data_name } from '@assets'
 
+// TODO добавить в конфиг возможность отключать
+
 const callback = function (s, is_classList) {
   return is_classList
     ? widget_data_name + '__' + s

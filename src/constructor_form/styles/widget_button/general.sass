@@ -1,0 +1,17 @@
+#{$id}
+	&.#{$cls}widget_button
+		cursor: pointer
+		font-size: $widget_button_font_size
+
+		// text transform
+		.#{$cls}--label_transform__lowercase &
+			text-transform: lowercase
+
+		.#{$cls}--label_transform__uppercase &
+			text-transform: uppercase
+
+		// hover
+		> *
+			opacity: $op
+		&:hover > *
+			opacity: 1

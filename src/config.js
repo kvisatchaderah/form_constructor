@@ -13,12 +13,16 @@ export default {
     shadow: true,
 
     button_variant: 'fill', // fill outline
+    widget_button_close_position: 'top', // left right bottom top
+    label_transform: 'lowercase', // standart uppercase lowercase
 
     // classes
-    open_template: 'standart', // standart modal sidebar // TODO ---- off ----
-    side: 'side_bottom', // side_top side_bottom side_left side_right
-    position: 'left', // left center right // top middle bottom
+    open_template: 'modal', // standart modal sidebar
+    // TODO ---- off ----
+    side: 'side_right', // side_top side_bottom side_left side_right
+    position: 'middle', // left center right // top middle bottom
   },
+  // TODO добавить объект classes который будет автоматом вешать свои классы на виджет
 
   // vars
   vars: {
@@ -26,6 +30,8 @@ export default {
     font_color: '#000000',
     font_size: '20px',
     widget_width: '350px',
+    widget_button_icon_size: '30px',
+    widget_button_font_size: '22px',
 
     template_distance: '8px',
     template_border_radius: '4px',
@@ -33,7 +39,7 @@ export default {
     button_next_color: 'green',
     button_prev_color: 'grey',
 
-    label_size: 1,
+    label_size: 2,
     input_size: 3,
   },
 
@@ -45,21 +51,22 @@ export default {
     //
     // identeficators
     //
+    // TODO need?
 
     //  widget
     widget__ids: '',
     widget__classes: '',
-    widget__class_active: '',
+    widget__active_classes: '',
 
     // widget_form
     widget_form__ids: '',
     widget_form__classes: '',
-    widget_form__class_active: '',
+    widget_form__active_classes: '',
 
     // window
     window__ids: '',
     window__classes: '',
-    window__class_active: '',
+    window__active_classes: '',
 
     // submit_button
     submit__ids: '',
@@ -69,18 +76,23 @@ export default {
     // widget_button
     widget_button__ids: '',
     widget_button__classes: '',
-    widget_button__class_active: '',
+    widget_button__active_classes: '',
   },
 
   // views
   views: {
     // mode
 
-    mode: 'quiz', // standart quiz tree
+    mode: 'standart', // standart quiz tree
 
     // tree
     tree_labels: ['1 tree label', '2 tree label'],
-    widget_label: 'Нажми меня',
+
+    // widget_label
+    widget_button_open_text: 'Открыть',
+    widget_button_open_icon: 'message_square',
+    widget_button_close_text: 'Close',
+    widget_button_close_icon: 'x',
 
     // windows
     windows: [

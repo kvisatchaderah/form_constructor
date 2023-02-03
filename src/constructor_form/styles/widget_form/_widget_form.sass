@@ -1,14 +1,3 @@
-// disable if form not active
-#{$id}
-	&.#{$cls}widget:not(.#{$cls}--active)
-		#{$id}.#{$cls}widget_form
-			display: none
-
-#{$id}.#{$cls}widget_form
-	@extend .#{$cls}card
-	position: relative
-
-	&.#{$cls}--mode_tree
-		display: grid
-		column-gap: $p
-		row-gap: $p
+@import './not_active.sass'
+@import './wrapper.sass'
+@import './form.sass'

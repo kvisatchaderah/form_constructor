@@ -1,6 +1,3 @@
-// import
-import { classes } from '@assets'
-
 // helpers
 import { get_element_model, get_computed_options } from '@m_helpers'
 
@@ -22,48 +19,29 @@ export default class {
 					${this.config.styles.side ? '--' + this.config.styles.side : ''}
 					${this.config.styles.position ? '--' + this.config.styles.position : ''}
 					${this.config.styles.shadow ? '--shadow' : ''}
+					${
+            this.config.styles.widget_button_close_position
+              ? '--widget_button_close_position__' +
+                this.config.styles.widget_button_close_position
+              : ''
+          }
+					${
+            this.config.styles.label_transform
+              ? '--label_transform__' + this.config.styles.label_transform
+              : ''
+          }
+					${this.config.views.mode ? '--mode__' + this.config.views.mode : ''}
+					${
+            this.config.styles.open_template
+              ? '--' + this.config.styles.open_template
+              : ''
+          }
+						
 				`,
       }),
       [
-        get_element_model(
-          null,
-          get_computed_options(this.config, 'widget_form', {
-            class: `
-							--mode_${this.config.views.mode}
-							${
-                this.config.styles.open_template
-                  ? '--' + this.config.styles.open_template
-                  : ''
-              }
-						`,
-          }),
-          [
-            get_element_model(
-              null,
-              get_computed_options(this.config, 'widget_button', {
-                class: `
-									--close
-								`,
-              }),
-              [
-                get_element_model('svg', {
-                  svg_name: 'x',
-                  class: '',
-                }),
-              ]
-            ),
-            ...this.context.windows_model.get(),
-          ]
-        ),
-        get_element_model(
-          null,
-          get_computed_options(this.config, 'widget_button', {
-            class: `
-							--open
-						`,
-          }),
-          [get_element_model('svg', { svg_name: 'message_square', class: '' })]
-        ),
+        this.context.form_model.get(),
+        this.context.widget_buttons_model.get('open'),
       ]
     )
   }

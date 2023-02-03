@@ -2,11 +2,7 @@
 import { classes } from '@assets'
 
 // helpers
-import {
-  get_element_model,
-  get_computed_options,
-  get_classes,
-} from '@m_helpers'
+import { get_element_model, get_computed_options } from '@m_helpers'
 
 // export
 export default class {
@@ -33,7 +29,7 @@ export default class {
           null,
           get_computed_options(this.config, 'widget_form', {
             class: `
-							windows
+							--mode_${this.config.views.mode}
 							${
                 this.config.styles.open_template
                   ? '--' + this.config.styles.open_template

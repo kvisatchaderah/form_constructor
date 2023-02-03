@@ -1,4 +1,6 @@
 export default {
+  // TODO write config default
+
   // styles
   styles: {
     // js script
@@ -9,23 +11,30 @@ export default {
     label_overflow: true,
     placeholders: true,
     shadow: true,
-    button_variant: 'standart', // standart
+
+    button_variant: 'fill', // fill outline
 
     // classes
-    open_template: 'standart', // standart modal sidebar
-    side: 'side_right', // side_top side_bottom side_left side_right
-    position: 'bottom', // left center right // top middle bottom
+    open_template: 'standart', // standart modal sidebar // TODO ---- off ----
+    side: 'side_bottom', // side_top side_bottom side_left side_right
+    position: 'left', // left center right // top middle bottom
+  },
 
-    // vars
-    vars: {
-      background_color: '#ffffff',
-      font_color: '#000000',
-      font_size: '20px',
-      widget_width: '500px',
+  // vars
+  vars: {
+    background_color: '#ffffff',
+    font_color: '#000000',
+    font_size: '20px',
+    widget_width: '350px',
 
-      template_distance: '8px',
-      template_border_radius: '4px',
-    },
+    template_distance: '8px',
+    template_border_radius: '4px',
+
+    button_next_color: 'green',
+    button_prev_color: 'grey',
+
+    label_size: 1,
+    input_size: 3,
   },
 
   // special
@@ -71,32 +80,33 @@ export default {
 
     // tree
     tree_labels: ['1 tree label', '2 tree label'],
+    widget_label: 'Нажми меня',
 
     // windows
     windows: [
       [
         {
-          name: 'texgfdgdfgdfgfdgfdgdft 1',
+          name: 'text 1',
           type: 'text',
           required: true,
-          min: 8,
+          min: 4,
         },
         {
           name: 'tel 1',
           type: 'tel',
-          min: 8,
         },
       ],
 
       [
         {
-          name: 'texgfddgfdfdgdft 2',
+          name: 'text 2',
           type: 'text',
-          min: 6,
+          min: 8,
         },
         {
           name: 'tel 2',
           type: 'tel',
+          required: true,
         },
       ],
     ],

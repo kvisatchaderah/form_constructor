@@ -24,8 +24,15 @@ const Buttons = class {
 import buttons_standart from './buttons_standart'
 import buttons_quiz from './buttons_quiz'
 import buttons_tree from './buttons_tree'
+import buttons_templates from './buttons_templates'
 
-Object.assign(Buttons.prototype, buttons_standart, buttons_quiz, buttons_tree)
+Object.assign(
+  Buttons.prototype,
+  buttons_standart,
+  buttons_quiz,
+  buttons_tree,
+  buttons_templates
+)
 
 // export
 export default Buttons

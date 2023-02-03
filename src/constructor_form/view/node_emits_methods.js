@@ -4,9 +4,6 @@ import { get_dynamic_class, classList_change } from '@v_helpers'
 // assets
 import { classes } from '@assets'
 
-// vars
-const correct_value = 'correct_value'
-
 // export
 export default {
   //
@@ -14,6 +11,7 @@ export default {
   //
 
   // TODO переделать на вью модел
+  // TODO добавить класс еррор инпуту
 
   on_widget_button() {
     classList_change(this.targets.widget)
@@ -41,7 +39,25 @@ export default {
 
   // submit
   submit() {
-    console.log('submit')
+    const data = this.targets.inputs
+      .map((window_inputs) => {
+        return window_inputs.map((input_object) => {
+          const res = input_object.node.value
+          input_object.node.value = ''
+          return {
+            name: input_object.node.placeholder,
+            value: res,
+          }
+        })
+      })
+      .flat()
+
+    console.log('---- ---- submit ---- ----')
+    console.log(data)
+    console.log('---- ---- submit ---- ----')
+
+    // TODO create form || when rewrite view model add is_valid class in window
+    this.on_widget_button()
   },
 
   // prev
@@ -156,7 +172,7 @@ export default {
     classList_change(
       current_next_button,
       window_valid ? 'remove' : 'add',
-      'class_disable'
+      'disable_classes'
     )
 
     this.targets.window_valids[this.active_window] = window_valid

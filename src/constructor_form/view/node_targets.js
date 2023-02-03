@@ -32,7 +32,7 @@ export default {
       // search inputs
       const inputs_container =
         button_node.closest(get_dynamic_class(classes.window)) ||
-        button_node.closest(get_dynamic_class(classes.form))
+        button_node.closest(get_dynamic_class(classes.widget_form))
       const inputs = inputs_container.querySelectorAll(
         get_dynamic_class(classes.input)
       )

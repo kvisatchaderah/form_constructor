@@ -1,5 +1,5 @@
 // helpers
-import { get_element_model, get_classes } from '@m_helpers'
+import { get_element_model } from '@m_helpers'
 
 // export
 export default {
@@ -8,15 +8,7 @@ export default {
     const buttons_wrapper = get_element_model(
       null,
       { class: 'button_container --single_button' },
-      [
-        get_element_model(
-          null,
-          {
-            class: get_classes('submit'),
-          },
-          ['Отправить']
-        ),
-      ]
+      [this.get_button_submit_model()]
     )
 
     this.context.windows_model.value.push(buttons_wrapper)

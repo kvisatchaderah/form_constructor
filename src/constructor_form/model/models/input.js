@@ -32,7 +32,7 @@ export default class {
   get(input_config, input_id) {
     return [
       ...this.get_input(input_config, input_id),
-      ...this.get_errors(input_config, input_id),
+      this.get_errors(input_config, input_id),
     ]
   }
 
@@ -84,26 +84,30 @@ export default class {
   //
 
   get_errors(input_config, input_id) {
-    return (
-      Object.keys(filters)
-        .map((filter_key) => {
-          // undefined treatment
-          if (!input_config[filter_key]) return false
+    const error_models = Object.keys(filters)
+      .map((filter_key) => {
+        // undefined working
+        if (!input_config[filter_key]) return false
 
-          // return general
-          return get_element_model(
-            null,
-            {
-              input_id: input_id,
-              class: classes.error,
-              error: filter_key,
-              class_active: classes.active,
-            },
-            [filters[filter_key].error_text(input_config[filter_key])]
-          )
-        })
-        // filter false results
-        .filter((v) => v)
-    )
+        // return general
+        return get_element_model(
+          null,
+          {
+            input_id: input_id,
+            class: classes.error,
+            error: filter_key,
+            active_classes: classes.active,
+          },
+          [filters[filter_key].error_text(input_config[filter_key])]
+        )
+      })
+      // filter false results
+      .filter((v) => v)
+
+    if (error_models.length) {
+      return get_element_model(null, { class: classes.errors }, error_models)
+    } else {
+      return get_element_model(null, { class: classes.errors })
+    }
   }
 }

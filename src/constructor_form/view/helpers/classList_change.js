@@ -2,7 +2,7 @@
 import { get_dynamic_class } from '@v_helpers'
 
 // export
-export default function (node, method = 'toggle', type = 'class_active') {
+export default function (node, method = 'toggle', type = 'active_classes') {
   const active_classes = node.dataset[type]
 
   // simple active class

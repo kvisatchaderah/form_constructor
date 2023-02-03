@@ -6,13 +6,19 @@
 	&.#{$cls}widget_button
 		cursor: pointer
 
+		// hover
+		svg
+			opacity: $op
+		&:hover svg
+			opacity: 1
+
 	//
 	// open
 	//
 
 	&.#{$cls}widget_button.#{$cls}--open
-		@extend .card
-		@extend .fc
+		@extend .#{$cls}card
+		@extend .#{$cls}fc
 
 		padding: $p
 		border-radius: 12px
@@ -33,7 +39,6 @@
 		height: 50px
 
 		color: $bc
-		opacity: $op
 
 		// sides
 		.#{$cls}--side_bottom &,
@@ -45,6 +50,3 @@
 		.#{$cls}--side_right &
 			top: -50px
 			right: 0
-
-		&:hover
-			opacity: 1

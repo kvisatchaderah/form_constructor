@@ -5,9 +5,10 @@ import CSSVars from './css_vars'
 // export
 export default class {
   // constructor
-  constructor({ styles, special, views }) {
+  constructor({ styles, vars, special, views }) {
     // config
     this.styles = styles
+    this.vars = vars
     this.special = special
     this.views = views
 

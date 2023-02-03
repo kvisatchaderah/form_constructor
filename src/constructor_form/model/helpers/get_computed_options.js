@@ -16,16 +16,16 @@ export default (context, option_name, add_option = {}) => {
 		${add_option.class ?? ''}
 	`
 
-  const computed_class_active = `
+  const computed_active_classes = `
 		${classes.active} 
-		${context.special[`${option_name}__class_active`] ?? ''} 
-		${add_option.class_active ?? ''}
+		${context.special[`${option_name}__active_classes`] ?? ''} 
+		${add_option.active_classes ?? ''}
 	`
 
-  const computed_class_disabled = `
+  const computed_disable_classes = `
 		${classes.disable} 
-		${context.special[`${option_name}__class_disabled`] ?? ''} 
-		${add_option.class_disabled ?? ''}
+		${context.special[`${option_name}__disable_classes`] ?? ''} 
+		${add_option.disable_classes ?? ''}
 		`
 
   // return
@@ -34,8 +34,8 @@ export default (context, option_name, add_option = {}) => {
     ...{
       id: computed_id,
       class: computed_class,
-      class_active: computed_class_active,
-      class_disabled: computed_class_disabled,
+      active_classes: computed_active_classes,
+      disable_classes: computed_disable_classes,
     },
   }
 }

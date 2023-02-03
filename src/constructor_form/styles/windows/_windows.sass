@@ -1,5 +1,12 @@
 #{$id}
-	&.#{$cls}window:not(.#{$cls}--active)
+	//
+	// modes
+	//
+
+	&.#{$cls}--mode_quiz .#{$cls}window:not(.#{$cls}--active)
+		display: none
+
+	&.#{$cls}--mode_tree .#{$cls}window_wrapper:not(.#{$cls}--active) .#{$cls}window
 		display: none
 
 	&.#{$cls}window
@@ -7,7 +14,7 @@
 
 		display: grid
 		column-gap: $p
-		row-gap: $pl
+		row-gap: $p
 
 		//
 		// general
@@ -18,7 +25,7 @@
 		.#{$cls}input
 			grid-column: span 1
 
-		.#{$cls}error
+		.#{$cls}errors
 			grid-column: span 1
 
 		.#{$cls}button_container
@@ -32,32 +39,32 @@
 			grid-template-columns: repeat(5, 1fr)
 
 			.#{$cls}input_label
-				grid-column: span 2
+				grid-column: span $label_size
 
 			.#{$cls}input
-				grid-column: span 3
+				grid-column: span $input_size
 
-			.#{$cls}error
-				grid-column: span 5
+			.#{$cls}errors
+				grid-column: span $input_and_label_size
 
 			.#{$cls}button_container
-				grid-column: span 5
+				grid-column: span $input_and_label_size
 
 		//
 		// is_labels_overflow
 		//
 
-		&.#{$cls}--is_labels_overflow
-			grid-template-columns: repeat(5, 1fr)
+		&.#{$cls}--has_labels.#{$cls}--is_labels_overflow
+			grid-template-columns: repeat($input_and_label_size, 1fr)
 
 			.#{$cls}input_label
-				grid-column: span 2
+				grid-column: span $label_size
 
 			.#{$cls}input
-				grid-column: span 3
+				grid-column: span $input_size
 
-			.#{$cls}error
-				grid-column: span 5
+			.#{$cls}errors
+				grid-column: span $input_and_label_size
 
 			.#{$cls}button_container
-				grid-column: span 5
+				grid-column: span $input_and_label_size

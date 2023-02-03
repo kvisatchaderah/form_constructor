@@ -2,7 +2,23 @@
 	&.#{$cls}error:not(.#{$cls}--active)
 		display: none
 
+	//
+	// input
+	// 
+
+	&.#{$cls}input
+		outline: none
+		font-size: $fsl
+		padding: $p
+		border-radius: $brad
+
+	//
+	// label
+	//
+
 	&.#{$cls}input_label
+		@extend .#{$cls}fs
+		opacity: $ops
 
 		// is_labels_overflow
 		.#{$cls}--is_labels_overflow &
@@ -20,3 +36,19 @@
 				width: $pl
 
 				background-image: linear-gradient(90deg, rgba($bc_rgb, 0), rgba($bc_rgb, 1))
+
+	//
+	// tree_label
+	//
+
+	&.#{$cls}tree_label
+		justify-content: flex-start
+		box-shadow: none !important
+
+	//
+	// errors
+	//
+
+	&.#{$cls}error
+		font-size: $fss
+		opacity: $ops

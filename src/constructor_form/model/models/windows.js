@@ -3,7 +3,6 @@ import {
   get_element_model,
   get_computed_options,
   get_unic_id,
-  get_classes,
 } from '@m_helpers'
 
 // assets
@@ -72,12 +71,18 @@ export default class {
   add_wrapper_to_window = (window_model, window_index) => {
     const window_wrapper_model = get_element_model(
       null,
-      { class: classes.window_wrapper },
+      {
+        class: classes.window_wrapper,
+        active_classes: classes.active,
+      },
       [
         get_element_model(
           null,
           {
-            class: get_classes('tree_label', 'tree_label'),
+            class: `
+							${classes.tree_label}
+							tree_label
+						`,
           },
           [this.config.views.tree_labels[window_index]]
         ),

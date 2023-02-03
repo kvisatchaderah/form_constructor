@@ -1,4 +1,4 @@
-.card
+.#{$cls}card
 	position: relative
 	z-index: $z
 
@@ -10,28 +10,28 @@
 	padding: calc(3 * $p) calc(2 * $p)
 
 	#{$id}.#{$cls}--shadow &
-		box-shadow: 0 0 12px 0 rgba($fc_rgb, .50), 0 2px 4px 0 rgba($bc_rgb, .25)
+		box-shadow: 0 0 12px 0 rgba($fc_rgb, .20), 0 2px 4px 0 rgba($bc_rgb, .10)
 
-.fc
+.#{$cls}fc
 	display: flex
 	justify-content: center
 	align-items: center
 
 	gap: $pl
 
-.fe
+.#{$cls}fe
 	display: flex
 	justify-content: flex-end
 	align-items: center
 
 	gap: $pl
 
-.fs
+.#{$cls}fs
 	display: flex
 	justify-content: flex-start
 	align-items: center
 
 	gap: $pl
 
-.column
+.#{$cls}column
 	flex-direction: column

@@ -19,18 +19,15 @@ export default class {
 
     this.add_vars()
 
-    if (
-      this.context.styles.vars.font_color &&
-      this.context.styles.vars.background_color
-    ) {
+    if (this.context.vars.font_color && this.context.vars.background_color) {
       this.add_rgb_colors()
     }
   }
 
   // add_var
   add_vars() {
-    Object.keys(this.context.styles.vars).forEach((var_key) =>
-      this.add_var(var_key, this.context.styles.vars[var_key])
+    Object.keys(this.context.vars).forEach((var_key) =>
+      this.add_var(var_key, this.context.vars[var_key])
     )
   }
 
@@ -49,7 +46,7 @@ export default class {
   add_rgb_colors() {
     // font_color_rgb
     const font_color_rgb = this.get_rgb_color(
-      this.context.styles.vars.font_color,
+      this.context.vars.font_color,
       '00, 00, 00'
     )
     this.value.push({
@@ -59,7 +56,7 @@ export default class {
 
     // background_color_rgb
     const background_color_rgb = this.get_rgb_color(
-      this.context.styles.vars.background_color,
+      this.context.vars.background_color,
       '256, 256, 256'
     )
     this.value.push({

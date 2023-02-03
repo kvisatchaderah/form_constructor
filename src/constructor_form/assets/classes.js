@@ -7,12 +7,13 @@ export default {
   submit: 'button --submit',
   prev: 'button --prev',
   next: 'button --next',
-  widget_button: 'button --on_widget',
+  widget_button: '--on_widget',
   tree_label: 'button --tree_label',
 
   // targets
   input: 'input',
   input_wrapper: 'input_wrapper',
+  errors: 'errors',
   error: 'error',
   window: 'window',
   window_wrapper: 'window_wrapper',

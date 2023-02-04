@@ -3,39 +3,39 @@
 		position: fixed
 
 		// top bottom
-		.#{$cls}--side_top &
+		.#{$cls}--widget_side__top &
 			top: $p
-		.#{$cls}--side_bottom &
+		.#{$cls}--widget_side__bottom &
 			bottom: $p
 
-		.#{$cls}--left &
+		.#{$cls}--widget_position__left &
 			left: 20%
-		.#{$cls}--center &
+		.#{$cls}--widget_position__center &
 			left: 50%
 			transform: translate3D(-50%, 0, 0)
-		.#{$cls}--right &
+		.#{$cls}--widget_position__right &
 			right: 20%
 
 		// left right
-		.#{$cls}--side_right &
+		.#{$cls}--widget_side__right &
 			right: $p
-		.#{$cls}--side_left &
+		.#{$cls}--widget_side__left &
 			left: $p
 
-		.#{$cls}--top &
+		.#{$cls}--widget_position__top &
 			top: 20%
-		.#{$cls}--middle &
+		.#{$cls}--widget_position__middle &
 			top: 50%
 			transform: translate3D(0, -50%, 0)
-		.#{$cls}--bottom &
+		.#{$cls}--widget_position__bottom &
 			bottom: 20%
 
 		//
 		// not active
 		//
 
-		.#{$cls}--side_right:not(.#{$cls}--active)	&
+		.#{$cls}--widget_side_right:not(.#{$cls}--active)	&
 			@extend .#{$cls}fe
 
-		.#{$cls}--side_left:not(.#{$cls}--active)	&
+		.#{$cls}--widget_side_left:not(.#{$cls}--active)	&
 			@extend .#{$cls}fs

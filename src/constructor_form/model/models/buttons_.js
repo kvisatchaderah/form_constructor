@@ -11,7 +11,7 @@ const Buttons = class {
 
   // set_create_method
   set_create_method() {
-    this.create = this[`create_to_${this.config.views.mode}_mode`]
+    this.create = this[`create_to_${this.config.styles.mode}_mode`]
   }
 
   // get

@@ -16,27 +16,27 @@ $widget_button_icon_size_plus: calc($widget_button_icon_size + $p)
 			width: $widget_button_icon_size
 
 		// sides
-		.#{$cls}--widget_button_close_position__left &
+		.#{$cls}--widget_buttons_close_position__left &
 			top: 0
 			right: calc(100% + $p)
 
-		.#{$cls}--widget_button_close_position__right &
+		.#{$cls}--widget_buttons_close_position__right &
 			top: 0
 			left: calc(100% + $p)
 
-		.#{$cls}--widget_button_close_position__top &
+		.#{$cls}--widget_buttons_close_position__top &
 			bottom: calc(100% + $p)
 			right: 0
 
-		.#{$cls}--widget_button_close_position__bottom &
+		.#{$cls}--widget_buttons_close_position__bottom &
 			top: calc(100% + $p)
 			right: 0
 
-	&.#{$cls}--widget_button_close_position__top.#{$cls}--side_top.#{$cls}--active
+	&.#{$cls}--widget_buttons_close_position__top.#{$cls}--side_top.#{$cls}--active
 		margin-top: $widget_button_icon_size_plus
-	&.#{$cls}--widget_button_close_position__bottom.#{$cls}--side_bottom.#{$cls}--active
+	&.#{$cls}--widget_buttons_close_position__bottom.#{$cls}--side_bottom.#{$cls}--active
 		margin-bottom: $widget_button_icon_size_plus
-	&.#{$cls}--widget_button_close_position__right.#{$cls}--side_right.#{$cls}--active
+	&.#{$cls}--widget_buttons_close_position__right.#{$cls}--side_right.#{$cls}--active
 		margin-right: $widget_button_icon_size_plus
-	&.#{$cls}--widget_button_close_position__left.#{$cls}--side_left.#{$cls}--active
+	&.#{$cls}--widget_buttons_close_position__left.#{$cls}--side_left.#{$cls}--active
 		margin-left: $widget_button_icon_size_plus

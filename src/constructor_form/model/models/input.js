@@ -16,22 +16,14 @@ export default class {
     this.value = null
   }
 
-  //
   // create
-  //
-
-  create() {
-    this.get_input = this.config.styles.labels
-      ? this.get_with_label
-      : this.get_without_label
-  }
+  create() {}
 
   //
-  // label
+  // get_input
   //
 
-  // has label
-  get_with_label(input_config, input_id) {
+  get_input(input_config, input_id) {
     return [
       get_element_model(
         'label',
@@ -45,22 +37,7 @@ export default class {
         ...{
           id: input_id,
           input_id: input_id,
-          placeholder: this.config.styles.placeholders ? input_config.name : '',
-          type: input_config.type,
-          class: classes.input,
-        },
-        ...set_input_filters(input_config),
-      }),
-    ]
-  }
-
-  // not label
-  get_without_label(input_config, input_id) {
-    return [
-      get_element_model('input', {
-        ...{
-          input_id: input_id,
-          placeholder: this.config.styles.placeholders ? input_config.name : '',
+          placeholder: this.config.styles.placeholder ? input_config.name : '',
           type: input_config.type,
           class: classes.input,
         },

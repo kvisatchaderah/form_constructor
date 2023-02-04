@@ -1,28 +1,33 @@
 export default {
   // TODO write config default
 
+  // TODO rename to modifiers
   // styles
   styles: {
-    // js script
-    open_method: 'dynamic', // TODO ---- off ----
-
     // js vars
     labels: true,
-    label_overflow: true,
+    labels_overflow: true,
     placeholders: true,
-    shadow: true,
+    shadows: true,
 
-    button_variant: 'fill', // fill outline
-    widget_button_close_position: 'top', // left right bottom top
-    label_transform: 'lowercase', // standart uppercase lowercase
+    buttons_variant: 'fill', // fill outline
+    widget_buttons_close_position: 'top', // left right bottom top
+    labels_transform: 'lowercase', // standart uppercase lowercase
 
     // classes
     open_template: 'modal', // standart modal sidebar
     // TODO ---- off ----
-    side: 'side_right', // side_top side_bottom side_left side_right
-    position: 'middle', // left center right // top middle bottom
+    widget_side: 'right', // top bottom left right
+    widget_position: 'middle', // left center right // top middle bottom
+
+    // mode
+    mode: 'tree', // standart quiz tree
   },
-  // TODO добавить объект classes который будет автоматом вешать свои классы на виджет
+
+  // scrypts
+  scrypts: {
+    open_method: 'dynamic', // TODO ---- off ----
+  },
 
   // vars
   vars: {
@@ -81,12 +86,10 @@ export default {
 
   // views
   views: {
-    // mode
-
-    mode: 'standart', // standart quiz tree
-
     // tree
     tree_labels: ['1 tree label', '2 tree label'],
+
+    // TODO change to widget button object
 
     // widget_label
     widget_button_open_text: 'Открыть',

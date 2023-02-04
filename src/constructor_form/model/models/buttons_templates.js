@@ -11,10 +11,7 @@ export default {
     return get_element_model(
       null,
       {
-        class: `
-					${classes.next}
-					--${this.config.styles.button_variant}
-				`,
+        class: classes.next,
         disable_classes: classes.disable,
       },
       ['Дальше']
@@ -26,10 +23,7 @@ export default {
     return get_element_model(
       null,
       {
-        class: `
-					${classes.prev}
-					--${this.config.styles.button_variant}
-				`,
+        class: classes.prev,
       },
       ['Назад']
     )
@@ -40,10 +34,7 @@ export default {
     return get_element_model(
       null,
       {
-        class: `
-					${classes.submit}
-					--${this.config.styles.button_variant}
-				`,
+        class: classes.submit,
         disable_classes: classes.disable,
       },
       ['Отправить']

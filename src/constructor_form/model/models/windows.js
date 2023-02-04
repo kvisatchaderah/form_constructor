@@ -21,7 +21,7 @@ export default class {
   create() {
     this.create_standart_model()
 
-    if (this.config.views.mode === 'tree') {
+    if (this.config.styles.mode === 'tree') {
       this.update_model_to_tree_mode()
     }
   }
@@ -30,16 +30,11 @@ export default class {
   create_standart_model() {
     this.config.views.windows.forEach((window, window_idx) => {
       // fix if window mode === standart but windows length > 1
-      if (this.config.views.mode === 'standart' && window_idx) return
+      if (this.config.styles.mode === 'standart' && window_idx) return
 
       const window_model = get_element_model(
         null,
-        get_computed_options(this.config, 'window', {
-          class: `
-						${this.config.styles.labels ? '--has_labels' : ''}
-						${this.config.styles.label_overflow ? '--is_labels_overflow' : ''}
-					`,
-        })
+        get_computed_options(this.config, 'window')
       )
 
       window.forEach((window_elem, window_elem_idx) => {

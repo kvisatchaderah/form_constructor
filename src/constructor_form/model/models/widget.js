@@ -10,34 +10,15 @@ export default class {
     this.config = config
   }
 
+  //
   // create
+  //
+
   create() {
     this.value = get_element_model(
       null,
       get_computed_options(this.config, 'widget', {
-        class: `
-					${this.config.styles.side ? '--' + this.config.styles.side : ''}
-					${this.config.styles.position ? '--' + this.config.styles.position : ''}
-					${this.config.styles.shadow ? '--shadow' : ''}
-					${
-            this.config.styles.widget_button_close_position
-              ? '--widget_button_close_position__' +
-                this.config.styles.widget_button_close_position
-              : ''
-          }
-					${
-            this.config.styles.label_transform
-              ? '--label_transform__' + this.config.styles.label_transform
-              : ''
-          }
-					${this.config.views.mode ? '--mode__' + this.config.views.mode : ''}
-					${
-            this.config.styles.open_template
-              ? '--' + this.config.styles.open_template
-              : ''
-          }
-						
-				`,
+        class: this.get_config_modifications(),
       }),
       [
         this.context.form_model.get(),
@@ -46,7 +27,35 @@ export default class {
     )
   }
 
+  //
+  // get config classes modifications
+  //
+
+  get_config_modifications() {
+    return Object.keys(this.config.styles).reduce(
+      this.get_config_modification,
+      ''
+    )
+  }
+
+  get_config_modification = (modifications, style_key) => {
+    if (typeof this.config.styles[style_key] === 'string') {
+      return `
+				${modifications}
+				--${style_key}__${this.config.styles[style_key]}
+			`
+    } else {
+      return `
+				${modifications}
+				--${this.config.styles[style_key] ? 'has_' : 'not_'}${style_key}
+			`
+    }
+  }
+
+  //
   // get
+  //
+
   get() {
     return this.value
   }

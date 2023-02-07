@@ -3,6 +3,7 @@ import InputModel from './models/input'
 import WidgetModel from './models/widget'
 import WidgetButtonsModel from './models/widget_buttons'
 import WindowsModel from './models/windows'
+import Overlay from './models/overlay'
 import FormModel from './models/form_model'
 import ButtonsModel from './models/buttons_'
 
@@ -17,6 +18,7 @@ export default class {
     this.windows_model = new WindowsModel(this, context)
     this.buttons_model = new ButtonsModel(this, context)
     this.widget_buttons_model = new WidgetButtonsModel(this, context)
+    this.overlay = new Overlay(this, context)
     this.form_model = new FormModel(this, context)
     this.widget_model = new WidgetModel(this, context)
   }
@@ -27,6 +29,7 @@ export default class {
     this.windows_model.create()
     this.buttons_model.create()
     this.widget_buttons_model.create()
+    this.overlay.create()
     this.form_model.create()
     this.widget_model.create()
 

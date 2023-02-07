@@ -2,40 +2,40 @@
 	&.#{$cls}widget_button_wrapper
 		position: fixed
 
+		//
 		// top bottom
-		.#{$cls}--widget_side__top &
+		//
+
+		.#{$cls}--widget_button_side__top &
 			top: $p
-		.#{$cls}--widget_side__bottom &
+			bottom: none
+		.#{$cls}--widget_button_side__bottom &
+			top: none
 			bottom: $p
 
-		.#{$cls}--widget_position__left &
-			left: 20%
-		.#{$cls}--widget_position__center &
+		.#{$cls}--widget_button_position__center &
 			left: 50%
-			transform: translate3D(-50%, 0, 0)
-		.#{$cls}--widget_position__right &
+			right: none
+		.#{$cls}--widget_button_position__left &
+			left: 20%
+			right: none
+		.#{$cls}--widget_button_position__right &
 			right: 20%
+			right: none
 
+		//
 		// left right
-		.#{$cls}--widget_side__right &
+		//
+
+		.#{$cls}--widget_button_side__right &
 			right: $p
-		.#{$cls}--widget_side__left &
+		.#{$cls}--widget_button_side__left &
 			left: $p
 
-		.#{$cls}--widget_position__top &
+		.#{$cls}--widget_button_position__top &
 			top: 20%
-		.#{$cls}--widget_position__middle &
+		.#{$cls}--widget_button_position__middle &
 			top: 50%
 			transform: translate3D(0, -50%, 0)
-		.#{$cls}--widget_position__bottom &
+		.#{$cls}--widget_button_position__bottom &
 			bottom: 20%
-
-		//
-		// not active
-		//
-
-		.#{$cls}--widget_side_right:not(.#{$cls}--active)	&
-			@extend .#{$cls}fe
-
-		.#{$cls}--widget_side_left:not(.#{$cls}--active)	&
-			@extend .#{$cls}fs

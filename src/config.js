@@ -1,9 +1,9 @@
 export default {
   // TODO write config default
-
   // TODO rename to modifiers
-  // styles
-  styles: {
+
+  // modifiers
+  modifiers: {
     // js vars
     labels: true,
     labels_overflow: true,
@@ -11,22 +11,28 @@ export default {
     shadows: true,
 
     buttons_variant: 'fill', // fill outline
-    widget_buttons_close_position: 'top', // left right bottom top
-    labels_transform: 'lowercase', // standart uppercase lowercase
 
-    // classes
+    // transform
+    tree_labels_transform: 'lowercase', // standart uppercase lowercase capitalize
+    labels_transform: 'lowercase', // standart uppercase lowercase capitalize
+    placeholders_transform: 'lowercase', // standart uppercase lowercase capitalize
+    widget_buttons_transform: 'lowercase', // standart uppercase lowercase capitalize
+    errors_transform: 'lowercase', // standart uppercase lowercase capitalize
+
+    // position
     open_template: 'modal', // standart modal sidebar
-    // TODO ---- off ----
-    widget_side: 'right', // top bottom left right
+
+    widget_side: 'left', // top bottom left right
     widget_position: 'middle', // left center right // top middle bottom
+
+    widget_button_side: 'right', // top bottom left right
+    widget_button_position: 'middle', // left center right // top middle bottom
+
+    widget_button_close_position: 'top', // left right bottom top
+    widget_button_text_direction: 'reverse', // normal reverse
 
     // mode
     mode: 'tree', // standart quiz tree
-  },
-
-  // scrypts
-  scrypts: {
-    open_method: 'dynamic', // TODO ---- off ----
   },
 
   // vars
@@ -40,12 +46,20 @@ export default {
 
     template_distance: '8px',
     template_border_radius: '4px',
+    scroll_border_width: '8px',
 
     button_next_color: 'green',
+    button_disable_color: 'blue',
     button_prev_color: 'grey',
+    base_opacty: 0.7,
 
     label_size: 2,
     input_size: 3,
+  },
+
+  // scrypts
+  scrypts: {
+    open_method: 'dynamic', // TODO ---- off ----
   },
 
   // special
@@ -92,9 +106,9 @@ export default {
     // TODO change to widget button object
 
     // widget_label
-    widget_button_open_text: 'Открыть',
+    widget_button_open_text: 'open_text ',
     widget_button_open_icon: 'message_square',
-    widget_button_close_text: 'Close',
+    widget_button_close_text: 'close_text',
     widget_button_close_icon: 'x',
 
     // windows
@@ -104,7 +118,7 @@ export default {
           name: 'text 1',
           type: 'text',
           required: true,
-          min: 4,
+          min: 2,
         },
         {
           name: 'tel 1',
@@ -116,7 +130,7 @@ export default {
         {
           name: 'text 2',
           type: 'text',
-          min: 8,
+          min: 4,
         },
         {
           name: 'tel 2',

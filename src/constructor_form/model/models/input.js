@@ -1,6 +1,4 @@
-// TODO rewrite after
-// delete input wrapper
-// add unic id
+// TODO rewrite after delete input wrapper add unic id
 
 // helpers
 import { get_element_model, set_input_filters } from '@m_helpers'
@@ -37,7 +35,9 @@ export default class {
         ...{
           id: input_id,
           input_id: input_id,
-          placeholder: this.config.styles.placeholder ? input_config.name : '',
+          placeholder: this.config.modifiers.placeholders
+            ? input_config.name
+            : '',
           type: input_config.type,
           class: classes.input,
         },

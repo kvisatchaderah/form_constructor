@@ -34,11 +34,39 @@ export default {
 
   // on_submit
   on_submit() {
+    // add submit tree working method
     this.next_step(this.submit, null)
   },
 
   // submit
   submit() {
+    this.reset_windows_state()
+    this.save_inputs_value()
+    this.on_widget_button()
+  },
+
+  // reset windows state
+  reset_windows_state() {
+    // reset active window
+    this.active_window = 0
+
+    // reset window active classes
+    this.targets.windows.forEach((window) => {
+      // tree mode
+      const closest_window_wrapper = window.closest(
+        get_dynamic_class(classes.window_wrapper)
+      )
+      if (closest_window_wrapper) {
+        classList_change(closest_window_wrapper, 'remove')
+      }
+
+      // other modes
+      classList_change(window, 'remove')
+    })
+  },
+
+  // save_inputs_value
+  save_inputs_value() {
     const data = this.targets.inputs
       .map((window_inputs) => {
         return window_inputs.map((input_object) => {
@@ -52,12 +80,7 @@ export default {
       })
       .flat()
 
-    console.log('---- ---- submit ---- ----')
-    console.log(data)
-    console.log('---- ---- submit ---- ----')
-
-    // TODO create form || when rewrite view model add is_valid class in window
-    this.on_widget_button()
+    console.log('submit: ', data)
   },
 
   // prev

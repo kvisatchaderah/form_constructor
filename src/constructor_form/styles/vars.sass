@@ -1,4 +1,8 @@
-// prop
+
+//
+//  prop
+//
+
 $unic_data_name: ''
 
 //
@@ -9,38 +13,52 @@ $id: [data-#{$unic_data_name}]
 $cls: #{$unic_data_name}__
 
 //
-// vars
+// colors
 //
 
-// general
 $bc: var(--#{$unic_data_name}__background_color)
 $fc: var(--#{$unic_data_name}__font_color)
+
+// js computed
+$fc_op: var(--#{$unic_data_name}__font_color_opacity)
+$bc_op: var(--#{$unic_data_name}__background_color_opacity)
+
+$fc_rgb: var(--#{$unic_data_name}__font_color_rgb)
+$bc_rgb: var(--#{$unic_data_name}__background_color_rgb)
+
+// button colors
+$button_next_color: var(--#{$unic_data_name}__button_next_color)
+$button_disable_color: var(--#{$unic_data_name}__button_disable_color)
+$button_prev_color: var(--#{$unic_data_name}__button_prev_color)
+
+//
+// sizes
+//
+
 $fs: var(--#{$unic_data_name}__font_size)
+
+$brad: var(--#{$unic_data_name}__template_border_radius)
+$scroll_border_width: var(--#{$unic_data_name}__scroll_border_width)
+$p: var(--#{$unic_data_name}__template_distance)
+// computed
+$pl: calc(2.5 * var(--#{$unic_data_name}__template_distance))
+
 $widget_width: var(--#{$unic_data_name}__widget_width)
 $widget_button_font_size: var(--#{$unic_data_name}__widget_button_font_size)
 $widget_button_icon_size: var(--#{$unic_data_name}__widget_button_icon_size)
 
-$p: var(--#{$unic_data_name}__template_distance)
-$brad: var(--#{$unic_data_name}__template_border_radius)
-//
-$pl: calc(2.5 * var(--#{$unic_data_name}__template_distance))
-
-$button_next_color: var(--#{$unic_data_name}__button_next_color)
-$button_prev_color: var(--#{$unic_data_name}__button_prev_color)
-
-// rgb
-$fc_rgb: var(--#{$unic_data_name}__font_color_rgb)
-$bc_rgb: var(--#{$unic_data_name}__background_color_rgb)
-
 // label size
 $label_size: var(--#{$unic_data_name}__label_size)
 $input_size: var(--#{$unic_data_name}__input_size)
-//
+// computed
 $input_and_label_size: calc(var(--#{$unic_data_name}__label_size) + var(--#{$unic_data_name}__input_size))
 
 // local vars
-$ops: 0.75
-$op: 0.55
+$op: var(--#{$unic_data_name}__base_opacty)
+// computed
+$op_difference: calc(0.5 * (1 - var(--#{$unic_data_name}__base_opacty)))
+$ops: calc($op + $op_difference)
+$opl: calc($op - $op_difference)
 
 $fss: 0.9rem
 $fsl: 1.2rem

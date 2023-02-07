@@ -10,19 +10,23 @@ export default class {
     this.config = config
   }
 
+  //
   // create
+  //
+
   create() {
-    this.value = get_element_model(null, { class: 'widget_form_wrapper' }, [
-      this.context.widget_buttons_model.get('close'),
-      get_element_model(
-        null,
-        get_computed_options(this.config, 'widget_form'),
-        this.context.windows_model.get()
-      ),
-    ])
+    this.value = get_element_model(
+      null,
+      get_computed_options(this.config, 'widget_button', {
+        class: `overlay`,
+      })
+    )
   }
 
+  //
   // get
+  //
+
   get() {
     return this.value
   }

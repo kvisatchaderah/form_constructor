@@ -17,12 +17,22 @@ export default class {
   create() {
     this.value = get_element_model(
       null,
-      get_computed_options(this.config, 'widget', {
+      get_computed_options(this.config, 'widget_wrapper', {
         class: this.get_config_modifications(),
       }),
       [
-        this.context.form_model.get(),
-        this.context.widget_buttons_model.get('open'),
+        get_element_model(
+          null,
+          get_computed_options(this.config, 'widget', {
+            class: this.get_config_modifications(),
+          }),
+          [
+            this.context.overlay.get(),
+            this.context.form_model.get(),
+
+            this.context.widget_buttons_model.get('open'),
+          ]
+        ),
       ]
     )
   }
@@ -32,22 +42,22 @@ export default class {
   //
 
   get_config_modifications() {
-    return Object.keys(this.config.styles).reduce(
+    return Object.keys(this.config.modifiers).reduce(
       this.get_config_modification,
       ''
     )
   }
 
   get_config_modification = (modifications, style_key) => {
-    if (typeof this.config.styles[style_key] === 'string') {
+    if (typeof this.config.modifiers[style_key] === 'string') {
       return `
 				${modifications}
-				--${style_key}__${this.config.styles[style_key]}
+				--${style_key}__${this.config.modifiers[style_key]}
 			`
     } else {
       return `
 				${modifications}
-				--${this.config.styles[style_key] ? 'has_' : 'not_'}${style_key}
+				--${this.config.modifiers[style_key] ? 'has_' : 'not_'}${style_key}
 			`
     }
   }

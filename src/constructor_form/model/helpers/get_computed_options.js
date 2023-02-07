@@ -5,7 +5,7 @@ import { classes } from '@assets'
 export default (context, option_name, add_option = {}) => {
   // computed
   const computed_id = `
-		${context.special[`${option_name}__ids`]}
+		${context.special[`${option_name}__ids`] ?? ''}
 		
 	`
 

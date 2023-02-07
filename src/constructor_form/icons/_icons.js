@@ -7,3 +7,5 @@ export default {
   message_square: message_square,
   x: x,
 }
+
+// TODO update icons from feather

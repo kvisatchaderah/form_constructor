@@ -1,2 +1,6 @@
-#{$id}.#{$cls}widget.#{$cls}--active .#{$cls}widget_button.#{$cls}--open
-	display: none
+#{$id}
+	&.#{$cls}widget.#{$cls}--active .#{$cls}widget_button.#{$cls}--open
+		display: none
+
+	&.#{$cls}widget:not(.#{$cls}--active) .#{$cls}widget_button.#{$cls}--close
+		display: none

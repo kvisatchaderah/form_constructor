@@ -1,7 +1,7 @@
 export default {
   // modificates
-  active: '--active', // not complex
-  disable: '--disable', // TODO не работает
+  active: '--active',
+  disable: '--disable',
 
   // emitters
   submit: 'button --submit',
@@ -13,6 +13,7 @@ export default {
   // targets
   input: 'input',
   input_wrapper: 'input_wrapper',
+  overlay: 'overlay --on_widget',
   errors: 'errors',
   error: 'error',
   window: 'window',

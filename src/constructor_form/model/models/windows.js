@@ -21,7 +21,7 @@ export default class {
   create() {
     this.create_standart_model()
 
-    if (this.config.styles.mode === 'tree') {
+    if (this.config.modifiers.mode === 'tree') {
       this.update_model_to_tree_mode()
     }
   }
@@ -30,7 +30,7 @@ export default class {
   create_standart_model() {
     this.config.views.windows.forEach((window, window_idx) => {
       // fix if window mode === standart but windows length > 1
-      if (this.config.styles.mode === 'standart' && window_idx) return
+      if (this.config.modifiers.mode === 'standart' && window_idx) return
 
       const window_model = get_element_model(
         null,

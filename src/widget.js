@@ -1,5 +1,5 @@
 import config from './config'
-import ConstructorForm from './constructor_form/constructor_form'
+import FormBuilder from './form_builder/form_builder'
 
 // init
-new ConstructorForm(config)
+new FormBuilder(config)

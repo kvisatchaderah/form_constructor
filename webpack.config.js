@@ -40,25 +40,23 @@ module.exports = ({ dev, serve }) => {
     resolve: {
       alias: {
         // assets
-        '@assets': __dirname + '/src/constructor_form/assets/_assets',
-        '@m_assets': __dirname + '/src/constructor_form/model/assets/_assets',
-        '@v_assets': __dirname + '/src/constructor_form/view/assets/_assets',
-        '@c_assets':
-          __dirname + '/src/constructor_form/controller/assets/_assets',
+        '@assets': __dirname + '/src/form_builder/assets/_assets',
+        '@m_assets': __dirname + '/src/form_builder/model/assets/_assets',
+        '@v_assets': __dirname + '/src/form_builder/view/assets/_assets',
+        '@c_assets': __dirname + '/src/form_builder/controller/assets/_assets',
 
         // icons
-        '@icons': __dirname + '/src/constructor_form/icons/_icons',
+        '@icons': __dirname + '/src/form_builder/icons/_icons',
 
         // styles
-        '@styles': __dirname + '/src/constructor_form/styles',
+        '@styles': __dirname + '/src/form_builder/styles',
 
         // helpers
-        '@helpers': __dirname + '/src/constructor_form/helpers/_helpers',
-        '@m_helpers':
-          __dirname + '/src/constructor_form/model/helpers/_helpers',
-        '@v_helpers': __dirname + '/src/constructor_form/view/helpers/_helpers',
+        '@helpers': __dirname + '/src/form_builder/helpers/_helpers',
+        '@m_helpers': __dirname + '/src/form_builder/model/helpers/_helpers',
+        '@v_helpers': __dirname + '/src/form_builder/view/helpers/_helpers',
         '@c_helpers':
-          __dirname + '/src/constructor_form/controller/helpers/_helpers',
+          __dirname + '/src/form_builder/controller/helpers/_helpers',
       },
     },
 
